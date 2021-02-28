@@ -15,9 +15,17 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var totalPriceLabel: UILabel!
     
-    @IBOutlet weak var firstSelectButton: UIButton!
+    @IBOutlet weak var firstSelectButton: UIButton! {
+        didSet {
+            firstSelectButton.layer.cornerRadius = 40
+        }
+    }
     
-    @IBOutlet weak var secondSelectButton: UIButton!
+    @IBOutlet weak var secondSelectButton: UIButton! {
+        didSet {
+            secondSelectButton.layer.cornerRadius = 40
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
