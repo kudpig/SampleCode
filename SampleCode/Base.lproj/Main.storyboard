@@ -88,8 +88,20 @@
                     <view key="view" contentMode="scaleToFill" id="pdF-LJ-FFy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eKr-RB-r3d">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="4oX-Ru-Vgx"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="eKr-RB-r3d" firstAttribute="top" secondItem="4oX-Ru-Vgx" secondAttribute="top" id="5Kj-kH-JmH"/>
+                            <constraint firstItem="4oX-Ru-Vgx" firstAttribute="trailing" secondItem="eKr-RB-r3d" secondAttribute="trailing" id="DC7-Wp-6AL"/>
+                            <constraint firstItem="eKr-RB-r3d" firstAttribute="leading" secondItem="4oX-Ru-Vgx" secondAttribute="leading" id="eEy-EV-byt"/>
+                            <constraint firstItem="4oX-Ru-Vgx" firstAttribute="bottom" secondItem="eKr-RB-r3d" secondAttribute="bottom" id="luf-wa-Q2Y"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="WqP-q3-WUD"/>
                 </viewController>
