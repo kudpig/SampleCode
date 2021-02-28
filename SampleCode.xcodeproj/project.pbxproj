@@ -62,13 +62,13 @@
 			children = (
 				8F13ABAD25EB850800FBC8DC /* AppDelegate.swift */,
 				8F13ABAF25EB850800FBC8DC /* SceneDelegate.swift */,
+				8F13ABC625EBAC2300FBC8DC /* FoodModel.swift */,
 				8F13ABB125EB850800FBC8DC /* ViewController.swift */,
 				8F13ABC225EBAA0500FBC8DC /* ItemListViewController.swift */,
 				8F13ABB325EB850800FBC8DC /* Main.storyboard */,
 				8F13ABB625EB850800FBC8DC /* Assets.xcassets */,
 				8F13ABB825EB850800FBC8DC /* LaunchScreen.storyboard */,
 				8F13ABBB25EB850800FBC8DC /* Info.plist */,
-				8F13ABC625EBAC2300FBC8DC /* FoodModel.swift */,
 			);
 			path = SampleCode;
 			sourceTree = "<group>";
