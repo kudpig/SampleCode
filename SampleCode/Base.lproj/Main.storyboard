@@ -74,11 +74,28 @@
                         <outlet property="secondItemLabel" destination="a7W-7A-SQ4" id="VZL-lA-3mh"/>
                         <outlet property="secondSelectButton" destination="9i1-PM-IN8" id="c49-Re-ynT"/>
                         <outlet property="totalPriceLabel" destination="f2X-Cg-eLI" id="sSi-fR-oea"/>
+                        <segue destination="g9f-Gn-fBZ" kind="show" identifier="goItemList" id="eqU-Tu-AS4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="928.98550724637687" y="93.75"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="BjH-7z-pDj">
+            <objects>
+                <viewController id="g9f-Gn-fBZ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pdF-LJ-FFy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="4oX-Ru-Vgx"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="WqP-q3-WUD"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bxl-5a-6mK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1922" y="-240"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="BPo-6u-dlk">

@@ -26,10 +26,12 @@ class ViewController: UIViewController {
 
     
     @IBAction func tapFirstSelectButton(_ sender: UIButton) {
+        performSegue(withIdentifier: "goItemList", sender: nil)
     }
     
 
     @IBAction func tapSecondSelectButton(_ sender: UIButton) {
+        performSegue(withIdentifier: "goItemList", sender: nil)
     }
     
 }
