@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tY4-eq-O9E">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -17,34 +17,40 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="cpB-fy-NvL">
-                                <rect key="frame" x="30" y="74" width="354" height="758"/>
+                                <rect key="frame" x="30" y="118" width="354" height="714"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="firstItemLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ku-Mq-xco">
-                                        <rect key="frame" x="0.0" y="0.0" width="354" height="151.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="143"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i1X-Yb-RVa">
-                                        <rect key="frame" x="0.0" y="151.5" width="354" height="151.5"/>
+                                        <rect key="frame" x="0.0" y="143" width="354" height="142.5"/>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="tapFirstSelectButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CqM-WD-Z88"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="secondItemLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7W-7A-SQ4">
-                                        <rect key="frame" x="0.0" y="303" width="354" height="152"/>
+                                        <rect key="frame" x="0.0" y="285.5" width="354" height="143"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9i1-PM-IN8">
-                                        <rect key="frame" x="0.0" y="455" width="354" height="151.5"/>
+                                        <rect key="frame" x="0.0" y="428.5" width="354" height="142.5"/>
                                         <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="tapSecondSelectButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PGL-2v-YQz"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="totalPriceLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f2X-Cg-eLI">
-                                        <rect key="frame" x="0.0" y="606.5" width="354" height="151.5"/>
+                                        <rect key="frame" x="0.0" y="571" width="354" height="143"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -61,10 +67,36 @@
                             <constraint firstItem="z1B-oS-4dh" firstAttribute="bottom" secondItem="cpB-fy-NvL" secondAttribute="bottom" constant="30" id="wHq-zr-lH4"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="pQy-9A-6US"/>
+                    <connections>
+                        <outlet property="firstItemLabel" destination="1ku-Mq-xco" id="7mK-Ik-NQv"/>
+                        <outlet property="firstSelectButton" destination="i1X-Yb-RVa" id="Bui-l5-3Rh"/>
+                        <outlet property="secondItemLabel" destination="a7W-7A-SQ4" id="VZL-lA-3mh"/>
+                        <outlet property="secondSelectButton" destination="9i1-PM-IN8" id="c49-Re-ynT"/>
+                        <outlet property="totalPriceLabel" destination="f2X-Cg-eLI" id="sSi-fR-oea"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="20" y="94"/>
+            <point key="canvasLocation" x="928.98550724637687" y="93.75"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="BPo-6u-dlk">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tY4-eq-O9E" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sY9-OB-fa9">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="5tT-dY-W8j"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dyA-a2-inE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="18.840579710144929" y="93.75"/>
         </scene>
     </scenes>
     <resources>
