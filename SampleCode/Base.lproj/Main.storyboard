@@ -81,10 +81,10 @@
             </objects>
             <point key="canvasLocation" x="928.98550724637687" y="93.75"/>
         </scene>
-        <!--View Controller-->
+        <!--Item List View Controller-->
         <scene sceneID="BjH-7z-pDj">
             <objects>
-                <viewController id="g9f-Gn-fBZ" sceneMemberID="viewController">
+                <viewController id="g9f-Gn-fBZ" customClass="ItemListViewController" customModule="SampleCode" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pdF-LJ-FFy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -104,6 +104,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="WqP-q3-WUD"/>
+                    <connections>
+                        <outlet property="tableView" destination="eKr-RB-r3d" id="lbh-kl-eG5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bxl-5a-6mK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
