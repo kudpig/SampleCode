@@ -16,6 +16,7 @@ class ItemListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
     
+    // [Food]をインスタンス化
     var items = [Food]()
     
     
@@ -29,20 +30,19 @@ class ItemListViewController: UIViewController {
         // delegateメソッドをこのファイルに記載
         tableView.delegate = self
         tableView.dataSource = self
-        
     }
 
 
 }
 
 
-// TableView Funcs
-    // 行の数
+// TableView Funcs ①〜③
+    // ①行の数
 extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
-    // cellの中身に関する設定
+    // ②cellの中身に関する設定
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // cellを以下の仕様で再利用する(for関数のようにrowひとつひとつに代入されるイメージ)
         let cell = tableView.dequeueReusableCell(withIdentifier: ItemListTableViewCell.identifier, for: indexPath) as! ItemListTableViewCell
@@ -57,13 +57,17 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    // セルをタップした時の設定
+    // ③セルをタップした時の設定
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         print("選択したcellのitem:\(items[indexPath.row])") // ex) Food(name: "Orange", price: 120, image: "Orange") と出力される
         
         // 配列のindexを取得。
         indexNum = indexPath.row // apple=0, orange=1...配列のindex
+        if indexNum == nil {
+            print("cellのindexが取得出来ませんでした")
+            return
+        }
         
         // 前画面のClassが持つenumや変数を呼び出すためにViewControllerを定数として定義する
         // 現在のNavigationController(必ずあるので強制アンラップで良い？)
@@ -79,9 +83,9 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
         // 値渡しのための条件分岐。前画面で押した遷移元のボタンによって代入先の変数を変える
         switch beforeVC.nowButton {
         case .first:
-            beforeVC.firstItemRowNumber = self.indexNum! // 配列のindexは必ず存在するので!で良いという判断
+            beforeVC.firstItemRowNumber = self.indexNum
         case .second:
-            beforeVC.secondItemRowNumber = self.indexNum!
+            beforeVC.secondItemRowNumber = self.indexNum
         default:
             print("Error!どのボタンか判別出来ませんでした")
         }

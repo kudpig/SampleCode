@@ -11,9 +11,9 @@ class ViewController: UIViewController {
     
     // 押されたボタンをcaseで分ける
     enum WhichBtn: String {
-        case none = "none"
-        case first = "firstItemRowNumber"
-        case second = "secondItemRowNumber"
+        case none = "noneBtn"
+        case first = "firstBtn"
+        case second = "secondBtn"
     }
     
     // 一番直近のタップされたボタンを判別する変数
@@ -24,22 +24,22 @@ class ViewController: UIViewController {
     // Label 初期値
     var itemLabelPlaceholder: String = "選択されていません"
     
+    // １つ目のラベル
     @IBOutlet weak var firstItemLabel: UILabel! {
         didSet {
             // tableViewCellから値を受け取っていた場合にtextの内容を変える処理
-            // さすがにリファクタするべきだと思うからそのうちやる
-            if firstItemRowNumber != nil {
-                firstItemLabel.text = foods[firstItemRowNumber!].name
+            if let rowNum = firstItemRowNumber {
+                firstItemLabel.text = foods[rowNum].name
             } else {
                 firstItemLabel.text = itemLabelPlaceholder
             }
         }
     }
-    
+    // ２つ目のラベル
     @IBOutlet weak var secondItemLabel: UILabel! {
         didSet {
-            if secondItemRowNumber != nil {
-                secondItemLabel.text = foods[secondItemRowNumber!].name
+            if let rowNum = secondItemRowNumber {
+                secondItemLabel.text = foods[rowNum].name
             } else {
                 secondItemLabel.text = itemLabelPlaceholder
             }
