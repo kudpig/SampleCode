@@ -9,24 +9,42 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    /// 選択されたセルのrowを取得
-    var firstSelectedRow: Int? = nil
-    /// firstItemLabel 初期値
-    var firstItemLabelPlaceholder: String = "選択されていません"
+    // 押されたボタンをcaseで分ける
+    enum WhichBtn: String {
+        case none = "none"
+        case first = "firstItemRowNumber"
+        case second = "secondItemRowNumber"
+    }
+    
+    // 一番直近のタップされたボタンを判別する変数
+    var nowButton: WhichBtn = .none // 初期値はボタンを押していないのでcase none
+    // 選択されたセルのrowを取得
+    var firstItemRowNumber: Int? = nil
+    var secondItemRowNumber: Int? = nil
+    // Label 初期値
+    var itemLabelPlaceholder: String = "選択されていません"
     
     @IBOutlet weak var firstItemLabel: UILabel! {
         didSet {
             // tableViewCellから値を受け取っていた場合にtextの内容を変える処理
             // さすがにリファクタするべきだと思うからそのうちやる
-            if firstSelectedRow != nil {
-                firstItemLabel.text = String(firstSelectedRow!)
+            if firstItemRowNumber != nil {
+                firstItemLabel.text = foods[firstItemRowNumber!].name
             } else {
-                firstItemLabel.text = firstItemLabelPlaceholder
+                firstItemLabel.text = itemLabelPlaceholder
             }
         }
     }
     
-    @IBOutlet weak var secondItemLabel: UILabel!
+    @IBOutlet weak var secondItemLabel: UILabel! {
+        didSet {
+            if secondItemRowNumber != nil {
+                secondItemLabel.text = foods[secondItemRowNumber!].name
+            } else {
+                secondItemLabel.text = itemLabelPlaceholder
+            }
+        }
+    }
     
     @IBOutlet weak var totalPriceLabel: UILabel!
     
@@ -52,12 +70,14 @@ class ViewController: UIViewController {
     
     
     
+    // ButtonAciton Funcs
+    // 画面遷移の前に押したボタン変数を更新する
     @IBAction func tapFirstSelectButton(_ sender: UIButton) {
+        nowButton = .first
         performSegue(withIdentifier: "goItemList", sender: nil)
     }
-    
-
     @IBAction func tapSecondSelectButton(_ sender: UIButton) {
+        nowButton = .second
         performSegue(withIdentifier: "goItemList", sender: nil)
     }
     

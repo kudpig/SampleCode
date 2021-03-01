@@ -59,27 +59,37 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
     
     // セルをタップした時の設定
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
         
         print("選択したcellのitem:\(items[indexPath.row])") // ex) Food(name: "Orange", price: 120, image: "Orange") と出力される
         
-        indexNum = indexPath.row // apple=0, orange=1...
+        // 配列のindexを取得。
+        indexNum = indexPath.row // apple=0, orange=1...配列のindex
         
-        print("選択したcellのnumber:\(indexNum!)") // cellには必ず順番の数字が割り当てられるので強制アンラップ
-        
-        // 現在のNavigationController(必ずあるので強制アンラップ)
+        // 前画面のClassが持つenumや変数を呼び出すためにViewControllerを定数として定義する
+        // 現在のNavigationController(必ずあるので強制アンラップで良い？)
         let presentNC = self.navigationController!
         // VCのカウントは現在のVCが-1,ひとつ前のVCが-2
         let beforeVC = presentNC.viewControllers[presentNC.viewControllers.count - 2] as! ViewController
+        // viewControllersはUIViewControllerクラスを配列で所持しており、その内の一つを指定している。
+        // なのでViewControllerクラスへのダウンキャストは必ず成功するという考えの元の as!
         
-        // 値渡し
-        beforeVC.firstSelectedRow = self.indexNum!
-        // 値を受取った後、再度描画
+        
+        
+        print(beforeVC.nowButton) // 選んだボタンの確認デバック用
+        // 値渡しのための条件分岐。前画面で押した遷移元のボタンによって代入先の変数を変える
+        switch beforeVC.nowButton {
+        case .first:
+            beforeVC.firstItemRowNumber = self.indexNum! // 配列のindexは必ず存在するので!で良いという判断
+        case .second:
+            beforeVC.secondItemRowNumber = self.indexNum!
+        default:
+            print("Error!どのボタンか判別出来ませんでした")
+        }
+        
+        
+        // 値を受取った後、再度描画し、一つ前のViewに戻る
         beforeVC.loadView()
         beforeVC.viewDidLoad()
-        
-        print("一つ前のVCのrowNumberに代入された数字:\(beforeVC.firstSelectedRow!)") // apple=0, orange=1...
-        // 一つ前のViewに戻る
         self.navigationController?.popViewController(animated: true)
     }
     
