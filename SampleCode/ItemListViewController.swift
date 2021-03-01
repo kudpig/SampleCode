@@ -9,6 +9,9 @@ import UIKit
 
 class ItemListViewController: UIViewController {
 
+    /// 選択したcellの配列番号が代入される
+    var indexNum: Int?
+    
     
     @IBOutlet weak var tableView: UITableView!
 
@@ -26,6 +29,7 @@ class ItemListViewController: UIViewController {
         // delegateメソッドをこのファイルに記載
         tableView.delegate = self
         tableView.dataSource = self
+        
     }
 
 
@@ -51,6 +55,32 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.iconImage.image = UIImage(named: iconStr)
         
         return cell
+    }
+    
+    // セルをタップした時の設定
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        print("選択したcellのitem:\(items[indexPath.row])") // ex) Food(name: "Orange", price: 120, image: "Orange") と出力される
+        
+        indexNum = indexPath.row // apple=0, orange=1...
+        
+        print("選択したcellのnumber:\(indexNum!)") // cellには必ず順番の数字が割り当てられるので強制アンラップ
+        
+        // 現在のNavigationController(必ずあるので強制アンラップ)
+        let presentNC = self.navigationController!
+        // VCのカウントは現在のVCが-1,ひとつ前のVCが-2
+        let beforeVC = presentNC.viewControllers[presentNC.viewControllers.count - 2] as! ViewController
+        
+        // 値渡し
+        beforeVC.firstSelectedRow = self.indexNum!
+        // 値を受取った後、再度描画
+        beforeVC.loadView()
+        beforeVC.viewDidLoad()
+        
+        print("一つ前のVCのrowNumberに代入された数字:\(beforeVC.firstSelectedRow!)") // apple=0, orange=1...
+        // 一つ前のViewに戻る
+        self.navigationController?.popViewController(animated: true)
     }
     
     
