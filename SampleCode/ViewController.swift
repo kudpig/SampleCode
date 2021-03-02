@@ -45,15 +45,20 @@ class ViewController: UIViewController {
             }
         }
     }
-    
-    @IBOutlet weak var totalPriceLabel: UILabel!
-    
+    // ３つ目のラベル(TotalPrice)
+    @IBOutlet weak var totalPriceLabel: UILabel! {
+        didSet {
+            // 合計金額の算出のためsumPriceメソッドを実行、引数として選択されたcellRowを渡す。関数内でアンラップするのでnilでも問題ない
+            totalPriceLabel.text = "合計 \(sumPrice(firstRowNum: firstItemRowNumber, secondRowNum: secondItemRowNumber)) 円"
+        }
+    }
+    // １つ目のボタン
     @IBOutlet weak var firstSelectButton: UIButton! {
         didSet {
             firstSelectButton.layer.cornerRadius = 40
         }
     }
-    
+    // ２つ目のボタン
     @IBOutlet weak var secondSelectButton: UIButton! {
         didSet {
             secondSelectButton.layer.cornerRadius = 40
@@ -68,6 +73,28 @@ class ViewController: UIViewController {
     }
 
     
+    
+    // totalPrice計算メソッド
+    func sumPrice(firstRowNum: Int?, secondRowNum: Int?) -> Int {
+        
+        let firstPrice: Int
+        let secondPrice: Int
+        
+        // if letを使用し、nilの場合は0を代入する
+        if let rowNum = firstRowNum {
+            firstPrice = foods[rowNum].price
+        } else {
+            firstPrice = 0
+        }
+        
+        if let rowNum = secondRowNum {
+            secondPrice = foods[rowNum].price
+        } else {
+            secondPrice = 0
+        }
+        
+        return firstPrice + secondPrice
+    }
     
     
     // ButtonAciton Funcs
