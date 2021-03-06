@@ -69,6 +69,22 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
             return
         }
         
+        /*
+        guard let _indexNum = indexNum else {
+            print("cellのindexが取得出来ませんでした")
+            return
+        }
+        */
+ 
+        /*
+        // Value '_indexNum' was defined but never used; consider replacing with boolean test
+         
+        guard indexNum != nil else {
+            print("cellのindexが取得出来ませんでした")
+            return
+        }
+        */
+        
         // 前画面のClassが持つenumや変数を呼び出すためにViewControllerを定数として定義する
         // 現在のNavigationController(必ずあるので強制アンラップで良い？)
         let presentNC = self.navigationController!
