@@ -64,26 +64,16 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
         
         // 配列のindexを取得。
         indexNum = indexPath.row // apple=0, orange=1...配列のindex
-        if indexNum == nil {
-            print("cellのindexが取得出来ませんでした")
-            return
-        }
+        //if indexNum == nil {
+        //    print("cellのindexが取得出来ませんでした")
+        //    return
+        //}
         
-        /*
+        // 書き直すとしたら
         guard let _indexNum = indexNum else {
             print("cellのindexが取得出来ませんでした")
             return
         }
-        */
- 
-        /*
-        // Value '_indexNum' was defined but never used; consider replacing with boolean test
-         
-        guard indexNum != nil else {
-            print("cellのindexが取得出来ませんでした")
-            return
-        }
-        */
         
         // 前画面のClassが持つenumや変数を呼び出すためにViewControllerを定数として定義する
         // 現在のNavigationController(必ずあるので強制アンラップで良い？)
@@ -99,9 +89,9 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
         // 値渡しのための条件分岐。前画面で押した遷移元のボタンによって代入先の変数を変える
         switch beforeVC.nowButton {
         case .first:
-            beforeVC.firstItemRowNumber = self.indexNum
+            beforeVC.firstItemRowNumber = _indexNum
         case .second:
-            beforeVC.secondItemRowNumber = self.indexNum
+            beforeVC.secondItemRowNumber = _indexNum
         default:
             print("Error!どのボタンか判別出来ませんでした")
         }
