@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class HomeViewController: UIViewController {
     
     private lazy var foods = Food.createDefaultFoods()
     
@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     enum WhichBtn: Int {
         case first = 0, second = 1, none = 2
     }
-    var nowButton: WhichBtn = .none
+    var buttonStatus: WhichBtn = .none
     
     
     // １つ目のラベル
@@ -37,6 +37,7 @@ class ViewController: UIViewController {
             secondItemLabel.text = itemLabelPlaceholder
         }
     }
+    
     // ３つ目のラベル(TotalPrice)
     @IBOutlet weak var totalPriceLabel: UILabel! {
         didSet {
@@ -44,6 +45,9 @@ class ViewController: UIViewController {
             totalPriceLabel.text = "○○○円"
         }
     }
+    
+    
+    
     
     
     
@@ -64,45 +68,50 @@ class ViewController: UIViewController {
     // ButtonAciton Funcs
     // 画面遷移の前に押したボタン変数を更新する
     @IBAction func tapFirstSelectButton(_ sender: UIButton) {
-        nowButton = .first
-        let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "ItemListViewController") as! ItemListViewController
-        vc.delegate = self
-        print(vc.delegate)
-        performSegue(withIdentifier: "goItemList", sender: nil)
+        buttonStatus = .first
+        let listTableVC = UIStoryboard(name: "ListTable", bundle: nil).instantiateViewController(identifier: "ListTable") as! ListTableViewController
+        listTableVC.delegate = self
+        
+        if let nav = self.navigationController {
+            nav.pushViewController(listTableVC, animated: true)
+        } else {
+            self.present(listTableVC, animated: true, completion: nil)
+        }
     }
+    
     @IBAction func tapSecondSelectButton(_ sender: UIButton) {
-        nowButton = .second
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "ItemListViewController") as! ItemListViewController
-        vc.delegate = self
-        performSegue(withIdentifier: "goItemList", sender: nil)
+        buttonStatus = .second
+        let listTableVC = UIStoryboard(name: "ListTable", bundle: nil).instantiateViewController(identifier: "ListTable") as! ListTableViewController
+        listTableVC.delegate = self
+        
+        if let nav = self.navigationController {
+            nav.pushViewController(listTableVC, animated: true)
+        } else {
+            self.present(listTableVC, animated: true, completion: nil)
+        }
     }
     
 }
 
 
-extension ViewController: ToPassItemProtocol {
-    func selectedItem(cellItem: Food) {
-        print("実行されました")
+extension HomeViewController: ToPassDataProtocol {
+    
+    // cellがタップされた時の処理
+    func cellDidSelect(cellData: Food) {
+        print("デリゲートが実行されました")
+        switch buttonStatus {
+        // ボタンの状態がfirstもしくはsecondだった場合
+        case .first, .second:
+            // labelsに格納されている配列の順番と、buttonStatusのenumのIntを一致させている
+            labels[buttonStatus.rawValue]?.text = cellData.name
+            // 選択されたFoodオブジェクトを配列に格納する(結果画面に渡せるように)
+            selectFoods[buttonStatus.rawValue] = cellData
+        default:
+            break
+        }
+        // 確認用
+        print("~~selectFoodsを出力~~")
+        print(selectFoods)
     }
-    
-    
-    // cellがタップされるとselectedItemのfoodが上書きされ、ViewControllerの持つ値が更新される
-    //func selectedItem(cellItem: Food) {
-    //    print("selectedItemを実行しています")
-    //
-    //    switch nowButton {
-    //    // ボタンの状態がfirstもしくはsecondだった場合
-    //    case .first, .second:
-    //        // labelsに格納されている配列の順番と、nowButtonのenumのIntを一致させている
-    //        labels[nowButton.rawValue]?.text = cellItem.name
-    //        print("labelsにfoodnameを代入します")
-    //        // 選択されたFoodオブジェクトを配列に格納する(結果画面に渡せるように)
-    //        selectFoods[nowButton.rawValue] = cellItem
-    //    default:
-    //        break
-    //    }
-    //}
-    
-    
     
 }
