@@ -12,7 +12,7 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="150" id="KGk-i7-Jjw" customClass="ItemListTableViewCell" customModule="SampleCode" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="402" height="150"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="402" height="150"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
@@ -24,16 +24,13 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t7y-mh-KqV">
-                        <rect key="frame" x="80" y="10" width="312" height="25"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="25" id="K8d-9x-Aa4"/>
-                        </constraints>
+                        <rect key="frame" x="80" y="10" width="312" height="95"/>
                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUC-fT-yxe">
-                        <rect key="frame" x="80" y="45" width="312" height="25"/>
+                        <rect key="frame" x="80" y="115" width="312" height="25"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="25" id="e6P-gD-5hV"/>
                         </constraints>
