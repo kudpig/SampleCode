@@ -7,30 +7,31 @@
 
 import UIKit
 
+protocol ToPassItemProtocol: class {
+    func selectedItem(cellItem: Food)
+}
+
 class ItemListViewController: UIViewController {
 
     /// 選択したcellの配列番号が代入される
-    var indexNum: Int?
+    //var indexNum: Int?
     
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView! {
+        didSet {
+            // 使用するcellファイルの登録
+            tableView.register(ItemListTableViewCell.nib(), forCellReuseIdentifier: ItemListTableViewCell.identifier)
+            // delegateメソッドをこのファイルに記載
+            tableView.delegate = self
+            tableView.dataSource = self
+        }
+    }
 
     
-    // [Food]をインスタンス化
-    var items = [Food]()
+    // FIX [Food]をインスタンス化
+    private lazy var items = Food.createDefaultFoods() // privateをつけないと他のクラスでitems変数が使えなくなる。itemsにアクセスされてからメソッドを実行する
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // cellに表示させたいitemsに、Foodモデルで定義したfoodsを代入(Jsonから変換済)
-        items = foods
-        // 使用するcellファイルの登録
-        tableView.register(ItemListTableViewCell.nib(), forCellReuseIdentifier: ItemListTableViewCell.identifier)
-        // delegateメソッドをこのファイルに記載
-        tableView.delegate = self
-        tableView.dataSource = self
-    }
+    weak var delegate: ToPassItemProtocol? // メモ これを持っているのがViewController(準拠させて、=selfとしている)
 
 
 }
@@ -44,64 +45,28 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     // ②cellの中身に関する設定
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // cellを以下の仕様で再利用する(for関数のようにrowひとつひとつに代入されるイメージ)
         let cell = tableView.dequeueReusableCell(withIdentifier: ItemListTableViewCell.identifier, for: indexPath) as! ItemListTableViewCell
-        
-        // itemsの内の取得されたrowが持つ各プロパティをxibのUIに代入する
         cell.nameLabel.text = items[indexPath.row].name
         cell.priceLabel.text = "\(items[indexPath.row].price)円"
-        // image文字列を定数に代入し取得、UIImageの引数として使用
         let iconStr = items[indexPath.row].image
         cell.iconImage.image = UIImage(named: iconStr)
-        
         return cell
     }
     
     // ③セルをタップした時の設定
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        print("選択したcellのitem:\(items[indexPath.row])") // ex) Food(name: "Orange", price: 120, image: "Orange") と出力される
+        print(delegate)
         
-        // 配列のindexを取得。
-        indexNum = indexPath.row // apple=0, orange=1...配列のindex
-        //if indexNum == nil {
-        //    print("cellのindexが取得出来ませんでした")
-        //    return
-        //}
-        
-        // 書き直すとしたら
-        guard let _indexNum = indexNum else {
-            print("cellのindexが取得出来ませんでした")
-            return
-        }
-        
-        // 前画面のClassが持つenumや変数を呼び出すためにViewControllerを定数として定義する
-        // 現在のNavigationController(必ずあるので強制アンラップで良い？)
-        let presentNC = self.navigationController!
-        // VCのカウントは現在のVCが-1,ひとつ前のVCが-2
-        let beforeVC = presentNC.viewControllers[presentNC.viewControllers.count - 2] as! ViewController
-        // viewControllersはUIViewControllerクラスを配列で所持しており、その内の一つを指定している。
-        // なのでViewControllerクラスへのダウンキャストは必ず成功するという考えの元の as!
-        
-        
-        
-        print(beforeVC.nowButton) // 選んだボタンの確認デバック用
-        // 値渡しのための条件分岐。前画面で押した遷移元のボタンによって代入先の変数を変える
-        switch beforeVC.nowButton {
-        case .first:
-            beforeVC.firstItemRowNumber = _indexNum
-        case .second:
-            beforeVC.secondItemRowNumber = _indexNum
-        default:
-            print("Error!どのボタンか判別出来ませんでした")
-        }
-        
-        
-        // 値を受取った後、再度描画し、一つ前のViewに戻る
-        beforeVC.loadView()
-        beforeVC.viewDidLoad()
+        // FIX
+        let item = items[indexPath.row]
+        print(item)
+        delegate?.selectedItem(cellItem: item) // プロトコルのメソッド delegateには渡す先のViewControllerが入っている
+        print("デリゲートセレクトアイテムは\(String(describing: delegate?.selectedItem(cellItem: item)))")
         self.navigationController?.popViewController(animated: true)
+        
     }
+    
     
     
 }
