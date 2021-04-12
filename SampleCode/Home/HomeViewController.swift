@@ -39,10 +39,14 @@ class HomeViewController: UIViewController {
     }
     
     // ３つ目のラベル(TotalPrice)
+    
+    private var sumFoodPrice: Int { selectFoods.filter{ !$0.name.isEmpty }.map { $0.price }.reduce(0) { $0 + $1 } }
+    // メモ String型はisEmptyメソッドを持つ
+    
     @IBOutlet weak var totalPriceLabel: UILabel! {
         didSet {
             // 合計金額の算出のためsumPriceメソッドを実行、引数として選択されたcellRowを渡す。関数内でアンラップするのでnilでも問題ない
-            totalPriceLabel.text = "○○○円"
+            totalPriceLabel.text = "合計 \(sumFoodPrice) 円"
         }
     }
     

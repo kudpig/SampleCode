@@ -14,6 +14,8 @@ struct Food {
     let price: Int
     let image: String
     
+    //var isEmpty: Bool
+    
     static func createEmpty() -> Food {
         return Food(name: "", price: 0, image: "")
     }
