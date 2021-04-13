@@ -18,23 +18,22 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="li2-W3-ywe">
-                        <rect key="frame" x="0.0" y="0.0" width="429" height="60"/>
+                        <rect key="frame" x="0.0" y="0.0" width="429" height="63"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dZM-hx-L9R">
-                                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                <rect key="frame" x="0.0" y="0.0" width="60" height="63"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="KaR-HE-cIO"/>
-                                    <constraint firstAttribute="height" constant="60" id="Qqd-aa-qNQ"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t7y-mh-KqV">
-                                <rect key="frame" x="60" y="0.0" width="330.5" height="60"/>
+                                <rect key="frame" x="60" y="0.0" width="330.5" height="63"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUC-fT-yxe">
-                                <rect key="frame" x="390.5" y="0.0" width="38.5" height="60"/>
+                                <rect key="frame" x="390.5" y="0.0" width="38.5" height="63"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
