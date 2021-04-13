@@ -14,7 +14,7 @@ class ListTableViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             // 使用するcellファイルの登録
-            tableView.register(ItemListTableViewCell.nib(), forCellReuseIdentifier: ItemListTableViewCell.identifier)
+            tableView.register(UINib(nibName: ItemListTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: ItemListTableViewCell.identifier)
             // delegateメソッドをこのファイルに記載
             tableView.delegate = self
             tableView.dataSource = self
@@ -34,12 +34,22 @@ extension ListTableViewController: UITableViewDelegate, UITableViewDataSource {
     }
     // ②cellの中身に関する設定
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ItemListTableViewCell.identifier, for: indexPath) as! ItemListTableViewCell
-        cell.nameLabel.text = foodList[indexPath.row].name
-        cell.priceLabel.text = "\(foodList[indexPath.row].price)円"
-        let iconStr = foodList[indexPath.row].image
-        cell.iconImage.image = UIImage(named: iconStr)
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ItemListTableViewCell.identifier) as? ItemListTableViewCell else {
+            fatalError()
+        }
+        
+        let item = foodList[indexPath.row]
+        cell.configure(item: item)
+        
         return cell
+        
+        //let cell = tableView.dequeueReusableCell(withIdentifier: ItemListTableViewCell.identifier, for: indexPath) //as! ItemListTableViewCell
+        //cell.nameLabel.text = foodList[indexPath.row].name
+        //cell.priceLabel.text = "\(foodList[indexPath.row].price)円"
+        //let iconStr = foodList[indexPath.row].image
+        //cell.iconImage.image = UIImage(named: iconStr)
+        //return cell
     }
     
     // ③セルをタップした時の設定
