@@ -116,6 +116,7 @@ extension HomeViewController: ToPassDataProtocol {
         // 確認用
         print("~~selectFoodsを出力~~")
         print(selectFoods)
+        totalPriceLabel.text = "合計 \(sumFoodPrice) 円"
     }
     
 }
