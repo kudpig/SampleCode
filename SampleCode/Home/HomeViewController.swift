@@ -73,27 +73,21 @@ class HomeViewController: UIViewController {
     // 画面遷移の前に押したボタン変数を更新する
     @IBAction func tapFirstSelectButton(_ sender: UIButton) {
         buttonStatus = .first
-        let listTableVC = UIStoryboard(name: "ListTable", bundle: nil).instantiateViewController(identifier: "ListTable") as! ListTableViewController
-        listTableVC.delegate = self
-        
-        if let nav = self.navigationController {
-            nav.pushViewController(listTableVC, animated: true)
-        } else {
-            self.present(listTableVC, animated: true, completion: nil)
-        }
+        Router.showList(fromVC: self)
     }
     
     @IBAction func tapSecondSelectButton(_ sender: UIButton) {
         buttonStatus = .second
-        let listTableVC = UIStoryboard(name: "ListTable", bundle: nil).instantiateViewController(identifier: "ListTable") as! ListTableViewController
-        listTableVC.delegate = self
-        
-        if let nav = self.navigationController {
-            nav.pushViewController(listTableVC, animated: true)
-        } else {
-            self.present(listTableVC, animated: true, completion: nil)
-        }
+        //let listTableVC = UIStoryboard(name: "ListTable", bundle: nil).instantiateViewController(identifier: "ListTable") as! ListTableViewController
+        //listTableVC.delegate = self
+        Router.showList(fromVC: self)
+
     }
+    
+    // delegateをtapButtonメソッド内で処理しようとすると実行されなくなる
+    //let listTableVC = UIStoryboard(name: "ListTable", bundle: nil).instantiateViewController(identifier: "ListTable") as! ListTableViewController
+    //listTableVC.delegate = self
+    //Router.showList(fromVC: self)
     
 }
 
