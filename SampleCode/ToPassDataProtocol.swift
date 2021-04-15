@@ -8,5 +8,5 @@
 import Foundation
 
 protocol ToPassDataProtocol: class {
-    func cellDidSelect(cellData: Food)
+    func cellDidSelect(cellData: Item)
 }
