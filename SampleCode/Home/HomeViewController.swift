@@ -38,6 +38,59 @@ class HomeViewController: UIViewController {
         }
     }
     
+    // View
+    @IBOutlet weak var firstItemView: UIView!
+    
+    @IBOutlet weak var secondItemView: UIView!
+    
+    @IBOutlet weak var thirdItemView: UIView!
+    
+    @IBOutlet weak var fourthItemView: UIView!
+    
+    @IBOutlet weak var fifthItemView: UIView!
+    
+    @IBOutlet weak var sixthItemView: UIView!
+    
+    @IBOutlet weak var seventhItemView: UIView!
+    
+    @IBOutlet weak var eighthItemView: UIView!
+    
+    
+    
+    
+    @IBOutlet weak var firstNameLabel: UILabel!
+    @IBOutlet weak var secondNameLabel: UILabel!
+    @IBOutlet weak var thirdNameLabel: UILabel!
+    @IBOutlet weak var fourthNameLabel: UILabel!
+    @IBOutlet weak var fifthNameLabel: UILabel!
+    @IBOutlet weak var sixthNameLabel: UILabel!
+    @IBOutlet weak var seventhNameLabel: UILabel!
+    @IBOutlet weak var eighthNameLabel: UILabel!
+    
+    
+    
+    
+    @IBOutlet weak var firstPriceLabel: UILabel!
+    @IBOutlet weak var secondPriceLabel: UILabel!
+    @IBOutlet weak var thirdPriceLabel: UILabel!
+    @IBOutlet weak var fourthPriceLabel: UILabel!
+    @IBOutlet weak var fifthPriceLabel: UILabel!
+    @IBOutlet weak var sixthPriceLabel: UILabel!
+    @IBOutlet weak var seventhPriceLabel: UILabel!
+    @IBOutlet weak var eighthPriceLabel: UILabel!
+    
+    
+    
+    @IBOutlet weak var tapFirstButton: UIButton!
+    @IBOutlet weak var tapSecondButton: UIButton!
+    @IBOutlet weak var tapThirdButton: UIButton!
+    @IBOutlet weak var tapFourthButton: UIButton!
+    @IBOutlet weak var tapFifthButton: UIButton!
+    @IBOutlet weak var tapSixthButton: UIButton!
+    @IBOutlet weak var tapSeventhButton: UIButton!
+    @IBOutlet weak var tapEighthButton: UIButton!
+    
+    
     // ３つ目のラベル(TotalPrice)
     // { selectFoods.filter{ !$0.name.isEmpty }.map { $0.price }.reduce(0) { $0 + $1 } }
     private var sumFoodPrice: Int {
