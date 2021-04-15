@@ -120,16 +120,16 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var totalPriceLabel: UILabel! {
         didSet {
-            totalPriceLabel.text = "合計 \(sumFoodPrice) 円"
+            totalPriceLabel.text = "合計 \(sumItemPrice) 円"
         }
     }
     // メモ String型はisEmptyメソッドを持つ
-    private var sumFoodPrice: Int {
+    private var sumItemPrice: Int {
         get {
-            selectFoods.filter { (food) -> Bool in
-                !food.name.isEmpty
-            }.map { (food) -> Int in
-                food.price
+            selectItems.filter { (item) -> Bool in
+                !item.name.isEmpty
+            }.map { (item) -> Int in
+                item.price
             }.reduce(0) { (result, price) -> Int in
                 result + price
             }
@@ -137,7 +137,7 @@ class HomeViewController: UIViewController {
     }
     
     
-    private lazy var foods = Food.createDefaultFoods()
+    private lazy var items = Item.createDefaultItems()
     
     // Label 初期値
     var nameLabelPlaceholder: String = "選択されていません"
@@ -147,7 +147,7 @@ class HomeViewController: UIViewController {
     private lazy var priceLabels = [firstPriceLabel, secondPriceLabel, thirdPriceLabel, fourthPriceLabel]
     private lazy var imageViews = [firstImage, secondImage, thirdImage, fourthImage]
     // 選択されたものを配列に加える。初期値は全てEmptyとする
-    private lazy var selectFoods = [Food](repeating: Food.createEmpty(), count: nameLabels.count)
+    private lazy var selectItems = [Item](repeating: Item.createEmpty(), count: nameLabels.count)
     
     // 押されたボタンの状態管理
     enum WhichBtn: Int {
@@ -185,7 +185,7 @@ class HomeViewController: UIViewController {
 extension HomeViewController: ToPassDataProtocol {
     
     // cellがタップされた時の処理
-    func cellDidSelect(cellData: Food) {
+    func cellDidSelect(cellData: Item) {
         
         switch buttonStatus {
         case .first, .second, .third, .fourth:
@@ -194,13 +194,13 @@ extension HomeViewController: ToPassDataProtocol {
             priceLabels[buttonStatus.rawValue]?.text = String(cellData.price)
             imageViews[buttonStatus.rawValue]?.image = UIImage(named: cellData.image)
             imageViews[buttonStatus.rawValue]?.isHidden = false
-            // 選択されたFoodオブジェクトを配列に格納する(結果画面に渡せるように)
-            selectFoods[buttonStatus.rawValue] = cellData
+            // 選択されたFoodオブジェクトを配列に格納する(一覧画面に渡せるように)
+            selectItems[buttonStatus.rawValue] = cellData
         default:
             break
         }
        
-        totalPriceLabel.text = "合計 \(sumFoodPrice) 円"
+        totalPriceLabel.text = "合計 \(sumItemPrice) 円"
         
         
     }

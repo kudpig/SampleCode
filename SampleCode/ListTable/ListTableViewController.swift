@@ -9,7 +9,7 @@ import UIKit
 
 class ListTableViewController: UIViewController {
     
-    private lazy var foodList = Food.createDefaultFoods()
+    private lazy var itemList = Item.createDefaultItems()
     
     @IBOutlet weak var tableView: UITableView! {
         didSet {
@@ -30,7 +30,7 @@ class ListTableViewController: UIViewController {
     // ①行の数
 extension ListTableViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return foodList.count
+        return itemList.count
     }
     // ②cellの中身に関する設定
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -39,7 +39,7 @@ extension ListTableViewController: UITableViewDelegate, UITableViewDataSource {
             fatalError()
         }
         
-        let item = foodList[indexPath.row]
+        let item = itemList[indexPath.row]
         cell.configure(item: item)
         
         return cell
@@ -55,8 +55,7 @@ extension ListTableViewController: UITableViewDelegate, UITableViewDataSource {
     // ③セルをタップした時の設定
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let item = foodList[indexPath.row]
-        print(item)
+        let item = itemList[indexPath.row]
         delegate?.cellDidSelect(cellData: item) // プロトコルのメソッド delegateには渡す先のViewControllerが入っている
         self.navigationController?.popViewController(animated: true)
         

@@ -28,7 +28,7 @@ class ItemListTableViewCell: UITableViewCell {
     }
     
     // 値を更新する処理。外部から呼ばせて代入する
-    func configure(item: Food) {
+    func configure(item: Item) {
         
         iconImage.image = UIImage(named: item.image)
         nameLabel.text = item.name
