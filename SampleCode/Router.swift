@@ -29,10 +29,4 @@ final class Router {
         }
     }
     
-    // 今後確認するべき内容
-    // Routerファイルにdelegateを書いてもよいのか
-    // vc.delegate = fromVC as? ToPassDataProtocol について
-    // ToPassDataProtocolへのダウンキャスト？これは準拠(継承)させているということなのか？
-    // Cannot assign value of type 'HomeViewController' to type 'ToPassDataProtocol?'を解消している？
-    
 }
