@@ -40,6 +40,9 @@
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hbF-Zb-I5R" userLabel="firstButton">
                                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="103"/>
+                                                                <connections>
+                                                                    <action selector="tapFirstButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hDd-SZ-mto"/>
+                                                                </connections>
                                                             </button>
                                                             <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="POR-Gc-cNb">
                                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="103"/>
@@ -132,6 +135,9 @@
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iwz-Ph-UrS" userLabel="secondButton">
                                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="103.5"/>
+                                                                <connections>
+                                                                    <action selector="tapSecondButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yGg-lr-acv"/>
+                                                                </connections>
                                                             </button>
                                                             <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="CcU-Ga-ZCO">
                                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="103.5"/>
@@ -224,6 +230,9 @@
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oz9-yW-BW7" userLabel="thirdButton">
                                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="103"/>
+                                                                <connections>
+                                                                    <action selector="tapThirdButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nbD-fd-Kra"/>
+                                                                </connections>
                                                             </button>
                                                             <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="8Np-em-foP">
                                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="103"/>
@@ -316,6 +325,9 @@
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XDr-Uc-wEM" userLabel="fourthButton">
                                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="103"/>
+                                                                <connections>
+                                                                    <action selector="tapFourthButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gfy-a0-3Nu"/>
+                                                                </connections>
                                                             </button>
                                                             <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Hxh-oV-urR">
                                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="103"/>

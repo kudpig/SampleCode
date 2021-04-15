@@ -125,29 +125,33 @@ class HomeViewController: UIViewController {
     
     // 押されたボタンの状態管理
     enum WhichBtn: Int {
-        case first = 0, second = 1, none = 2
+        case first = 0, second = 1, third = 2, fourth = 3, none = 4
     }
     var buttonStatus: WhichBtn = .none
     
     
-    
-    
-    
-        
-    // ButtonAciton Funcs
-    // 画面遷移の前に押したボタン変数を更新する
-    @IBAction func tapFirstSelectButton(_ sender: UIButton) {
+    @IBAction func tapFirstButton(_ sender: UIButton) {
         buttonStatus = .first
         Router.showList(fromVC: self)
     }
     
-    @IBAction func tapSecondSelectButton(_ sender: UIButton) {
+    @IBAction func tapSecondButton(_ sender: UIButton) {
         buttonStatus = .second
-        //let listTableVC = UIStoryboard(name: "ListTable", bundle: nil).instantiateViewController(identifier: "ListTable") as! ListTableViewController
-        //listTableVC.delegate = self
         Router.showList(fromVC: self)
-
     }
+    
+    @IBAction func tapThirdButton(_ sender: UIButton) {
+        buttonStatus = .third
+        Router.showList(fromVC: self)
+    }
+    
+    @IBAction func tapFourthButton(_ sender: UIButton) {
+        buttonStatus = .fourth
+        Router.showList(fromVC: self)
+    }
+    
+        
+    // ButtonAciton Funcs
     
     // delegateをtapButtonメソッド内で処理しようとすると実行されなくなる
     //let listTableVC = UIStoryboard(name: "ListTable", bundle: nil).instantiateViewController(identifier: "ListTable") as! ListTableViewController
@@ -164,7 +168,7 @@ extension HomeViewController: ToPassDataProtocol {
         print("デリゲートが実行されました")
         switch buttonStatus {
         // ボタンの状態がfirstもしくはsecondだった場合
-        case .first, .second:
+        case .first, .second, .third, .fourth:
             // labelsに格納されている配列の順番と、buttonStatusのenumのIntを一致させている
             labels[buttonStatus.rawValue]?.text = cellData.name
             // 選択されたFoodオブジェクトを配列に格納する(結果画面に渡せるように)
