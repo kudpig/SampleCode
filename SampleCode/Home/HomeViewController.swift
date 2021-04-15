@@ -39,8 +39,18 @@ class HomeViewController: UIViewController {
     }
     
     // ３つ目のラベル(TotalPrice)
-    
-    private var sumFoodPrice: Int { selectFoods.filter{ !$0.name.isEmpty }.map { $0.price }.reduce(0) { $0 + $1 } }
+    // { selectFoods.filter{ !$0.name.isEmpty }.map { $0.price }.reduce(0) { $0 + $1 } }
+    private var sumFoodPrice: Int {
+        get {
+            selectFoods.filter { (food) -> Bool in
+                !food.name.isEmpty
+            }.map { (food) -> Int in
+                food.price
+            }.reduce(0) { (result, price) -> Int in
+                result + price
+            }
+        }
+    }
     // メモ String型はisEmptyメソッドを持つ
     
     @IBOutlet weak var totalPriceLabel: UILabel! {
