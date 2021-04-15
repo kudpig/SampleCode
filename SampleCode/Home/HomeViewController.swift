@@ -130,6 +130,8 @@ class HomeViewController: UIViewController {
     var buttonStatus: WhichBtn = .none
     
     
+    
+    // ButtonAciton Funcs
     @IBAction func tapFirstButton(_ sender: UIButton) {
         buttonStatus = .first
         Router.showList(fromVC: self)
@@ -150,13 +152,6 @@ class HomeViewController: UIViewController {
         Router.showList(fromVC: self)
     }
     
-        
-    // ButtonAciton Funcs
-    
-    // delegateをtapButtonメソッド内で処理しようとすると実行されなくなる
-    //let listTableVC = UIStoryboard(name: "ListTable", bundle: nil).instantiateViewController(identifier: "ListTable") as! ListTableViewController
-    //listTableVC.delegate = self
-    //Router.showList(fromVC: self)
     
 }
 
