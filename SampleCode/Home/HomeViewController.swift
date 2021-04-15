@@ -123,10 +123,7 @@ class HomeViewController: UIViewController {
             totalPriceLabel.text = "合計 \(sumFoodPrice) 円"
         }
     }
-    
-    // ３つ目のラベル(TotalPrice)
     // メモ String型はisEmptyメソッドを持つ
-    // { selectFoods.filter{ !$0.name.isEmpty }.map { $0.price }.reduce(0) { $0 + $1 } }
     private var sumFoodPrice: Int {
         get {
             selectFoods.filter { (food) -> Bool in
@@ -145,11 +142,11 @@ class HomeViewController: UIViewController {
     // Label 初期値
     var nameLabelPlaceholder: String = "選択されていません"
     var priceLabelPlaceholder: String = ""
-    //FIX nameを表示するラベルを配列にする(上記の２つ)
+    
     private lazy var nameLabels = [firstNameLabel, secondNameLabel, thirdNameLabel, fourthNameLabel]
     private lazy var priceLabels = [firstPriceLabel, secondPriceLabel, thirdPriceLabel, fourthPriceLabel]
     private lazy var imageViews = [firstImage, secondImage, thirdImage, fourthImage]
-    // 選択したものを配列にしている。初期値は全てEmptyとなっている
+    // 選択されたものを配列に加える。初期値は全てEmptyとする
     private lazy var selectFoods = [Food](repeating: Food.createEmpty(), count: nameLabels.count)
     
     // 押されたボタンの状態管理
