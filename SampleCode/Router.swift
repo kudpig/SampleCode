@@ -22,10 +22,16 @@ final class Router {
     static func showList(fromVC: UIViewController) {
         let vc = UIStoryboard(name: "ListTable", bundle: nil).instantiateViewController(identifier: "ListTable") as! ListTableViewController
         vc.delegate = fromVC as? ToPassDataProtocol
+        
+        show(fromVC: fromVC, nextVC: vc)
+    }
+    
+    
+    private static func show(fromVC: UIViewController, nextVC: UIViewController) {
         if let nav = fromVC.navigationController {
-            nav.pushViewController(vc, animated: true)
+            nav.pushViewController(nextVC, animated: true)
         } else {
-            fromVC.present(vc, animated: true, completion: nil)
+            fromVC.present(nextVC, animated: true, completion: nil)
         }
     }
     
