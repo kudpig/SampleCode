@@ -7,7 +7,6 @@
 
 import Foundation
 
-// Foodを定義
 struct Item {
     
     let name: String

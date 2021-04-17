@@ -202,7 +202,6 @@ extension HomeViewController: ToPassDataProtocol {
        
         totalPriceLabel.text = "合計 \(sumItemPrice) 円"
         
-        
     }
     
 }
