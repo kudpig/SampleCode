@@ -15,26 +15,21 @@ class HomeViewController: UIViewController {
             createItemView(firstItemView, 40, .white)
         }
     }
-    
     @IBOutlet weak var secondItemView: UIView! {
         didSet {
             createItemView(secondItemView, 40, .white)
         }
     }
-    
     @IBOutlet weak var thirdItemView: UIView! {
         didSet {
             createItemView(thirdItemView, 40, .white)
         }
     }
-    
     @IBOutlet weak var fourthItemView: UIView! {
         didSet {
             createItemView(fourthItemView, 40, .white)
         }
     }
-    
-    
     // nameLabel
     @IBOutlet weak var firstNameLabel: UILabel! {
         didSet {
@@ -56,36 +51,27 @@ class HomeViewController: UIViewController {
             fourthNameLabel.text = nameLabelPlaceholder
         }
     }
-    
-    
     // imageView
     @IBOutlet weak var firstImage: UIImageView! {
         didSet {
             firstImage.isHidden = true
         }
     }
-    
     @IBOutlet weak var secondImage: UIImageView! {
         didSet {
             secondImage.isHidden = true
         }
     }
-    
     @IBOutlet weak var thirdImage: UIImageView! {
         didSet {
             thirdImage.isHidden = true
         }
     }
-    
     @IBOutlet weak var fourthImage: UIImageView! {
         didSet {
             fourthImage.isHidden = true
         }
     }
-    
-    
-    
-    
     // priceLabel
     @IBOutlet weak var firstPriceLabel: UILabel! {
         didSet{
@@ -109,13 +95,14 @@ class HomeViewController: UIViewController {
     }
     
     
-    
-    
     func createItemView(_ view: UIView, _ int: CGFloat, _ color: UIColor) {
         view.layer.cornerRadius = int
         view.backgroundColor = color
     }
     
+    // Label 初期値
+    var nameLabelPlaceholder: String = "選択されていません"
+    var priceLabelPlaceholder: String = ""
     
     
     @IBOutlet weak var totalPriceLabel: UILabel! {
@@ -139,9 +126,6 @@ class HomeViewController: UIViewController {
     
     private lazy var items = Item.createDefaultItems()
     
-    // Label 初期値
-    var nameLabelPlaceholder: String = "選択されていません"
-    var priceLabelPlaceholder: String = ""
     
     private lazy var nameLabels = [firstNameLabel, secondNameLabel, thirdNameLabel, fourthNameLabel]
     private lazy var priceLabels = [firstPriceLabel, secondPriceLabel, thirdPriceLabel, fourthPriceLabel]
@@ -179,6 +163,46 @@ class HomeViewController: UIViewController {
     }
     
     
+
+
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    private var numbers = ["5th", "6th", "7th", "8th"]
+    
+    @IBOutlet private weak var stackView: UIStackView! {
+        didSet {
+            setupStackView()
+            stackView.axis = .vertical
+            stackView.distribution = .fillEqually
+            stackView.spacing = 25
+        }
+    }
+    
+    func setupStackView() {
+    
+        var secitonNumber = 0
+    
+        for number in numbers {
+    
+            guard let contentView: ButtonView = UINib.init(nibName: ButtonView.identifier, bundle: nil).instantiate(withOwner: nil, options: nil).first as? ButtonView else {
+                fatalError()
+            }
+    
+            // sectionの情報を与える
+            contentView.nowSection = ButtonView.Section(rawValue: secitonNumber) ?? .none
+            secitonNumber += 1
+    
+            contentView.layer.cornerRadius = 40
+            self.stackView.addArrangedSubview(contentView)
+            
+            contentView.buttonConfigure(number: number)
+        }
+    
+    }
+
+
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 }
 
 

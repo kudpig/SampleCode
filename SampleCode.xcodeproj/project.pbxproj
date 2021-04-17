@@ -17,6 +17,8 @@
 		8F13ABCB25EBAE5C00FBC8DC /* ItemListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F13ABC925EBAE5C00FBC8DC /* ItemListTableViewCell.swift */; };
 		8F13ABCC25EBAE5C00FBC8DC /* ItemListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F13ABCA25EBAE5C00FBC8DC /* ItemListTableViewCell.xib */; };
 		8F1A0DEC2605D74100652BBA /* ListTable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F1A0DEB2605D74100652BBA /* ListTable.storyboard */; };
+		8F4EF3B0262B379800697207 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4EF3AF262B379800697207 /* ButtonView.swift */; };
+		8F4EF3B3262B37A800697207 /* ButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F4EF3B2262B37A800697207 /* ButtonView.xib */; };
 		8FE6E4242605E87200490C35 /* ToPassDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE6E4232605E87200490C35 /* ToPassDataProtocol.swift */; };
 		8FF6A4842626C831005B92D9 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF6A4832626C831005B92D9 /* Router.swift */; };
 /* End PBXBuildFile section */
@@ -34,6 +36,8 @@
 		8F13ABC925EBAE5C00FBC8DC /* ItemListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListTableViewCell.swift; sourceTree = "<group>"; };
 		8F13ABCA25EBAE5C00FBC8DC /* ItemListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemListTableViewCell.xib; sourceTree = "<group>"; };
 		8F1A0DEB2605D74100652BBA /* ListTable.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ListTable.storyboard; sourceTree = "<group>"; };
+		8F4EF3AF262B379800697207 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		8F4EF3B2262B37A800697207 /* ButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonView.xib; sourceTree = "<group>"; };
 		8FE6E4232605E87200490C35 /* ToPassDataProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToPassDataProtocol.swift; sourceTree = "<group>"; };
 		8FF6A4832626C831005B92D9 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,6 +76,7 @@
 				8FF6A4832626C831005B92D9 /* Router.swift */,
 				8FE6E4232605E87200490C35 /* ToPassDataProtocol.swift */,
 				8F1A0DEE2605D78B00652BBA /* Home */,
+				8F4EF3B5262B691700697207 /* CustomView */,
 				8F1A0DEF2605D79F00652BBA /* ListTable */,
 				8FE6E4272605E90300490C35 /* TableViewCell */,
 				8F1A0DF12605D9AF00652BBA /* Model */,
@@ -106,6 +111,15 @@
 				8F13ABC625EBAC2300FBC8DC /* ItemModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		8F4EF3B5262B691700697207 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				8F4EF3AF262B379800697207 /* ButtonView.swift */,
+				8F4EF3B2262B37A800697207 /* ButtonView.xib */,
+			);
+			path = CustomView;
 			sourceTree = "<group>";
 		};
 		8FE6E4272605E90300490C35 /* TableViewCell */ = {
@@ -176,6 +190,7 @@
 			files = (
 				8F13ABCC25EBAE5C00FBC8DC /* ItemListTableViewCell.xib in Resources */,
 				8F13ABBA25EB850800FBC8DC /* LaunchScreen.storyboard in Resources */,
+				8F4EF3B3262B37A800697207 /* ButtonView.xib in Resources */,
 				8F1A0DEC2605D74100652BBA /* ListTable.storyboard in Resources */,
 				8F13ABB725EB850800FBC8DC /* Assets.xcassets in Resources */,
 				8F13ABB525EB850800FBC8DC /* Home.storyboard in Resources */,
@@ -191,6 +206,7 @@
 			files = (
 				8F13ABC725EBAC2300FBC8DC /* ItemModel.swift in Sources */,
 				8FE6E4242605E87200490C35 /* ToPassDataProtocol.swift in Sources */,
+				8F4EF3B0262B379800697207 /* ButtonView.swift in Sources */,
 				8F13ABB225EB850800FBC8DC /* HomeViewController.swift in Sources */,
 				8FF6A4842626C831005B92D9 /* Router.swift in Sources */,
 				8F13ABCB25EBAE5C00FBC8DC /* ItemListTableViewCell.swift in Sources */,
