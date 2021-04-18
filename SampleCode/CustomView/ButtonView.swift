@@ -22,12 +22,12 @@ class ButtonView: UIView {
     }
     
     var nowSection: Section = .none
-
+    
     // ここがうまくいかない
     @objc func tapTest() {
         print("\(nowSection)のセルがタップされました")
-        let vc = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(identifier: "Home") as! HomeViewController
-        Router.showList(fromVC: vc)
+        //let vc = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(identifier: "Home") as! HomeViewController
+        //Router.showList(fromVC: vc)
     }
     
     
@@ -36,7 +36,6 @@ class ButtonView: UIView {
         numberLabel.text = number
         nameLabel.text = "選択されていません(\(nowSection))"
         priceLabel.text = ""
-        //itemImage.image = UIImage(named: "Apple")
         
         if itemImage.image != nil {
             itemImage.isHidden = false
@@ -47,7 +46,15 @@ class ButtonView: UIView {
         let tap = UITapGestureRecognizer.init(target: self, action: #selector(tapTest))
         self.addGestureRecognizer(tap)
         
-        
     }
     
 }
+
+
+//var itemImageStr: String?
+
+//itemImageStr = ""
+//
+//if let str = itemImageStr {
+//    itemImage.image = UIImage(named: str)
+//}
