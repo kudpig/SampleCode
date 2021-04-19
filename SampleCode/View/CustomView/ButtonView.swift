@@ -24,14 +24,11 @@ class ButtonView: UIView {
     enum Section: Int {
         case fifth = 0, sixth = 1, seventh = 2, eighth = 3, none = 4
     }
-    
     var nowSection: Section = .none
     
     var delegate: ButtonViewProtocol?
     
     @objc func tapTest() {
-        print("\(nowSection)のセルがタップされました")
-        
         delegate?.tapButton()
     }
     

@@ -185,13 +185,12 @@ class HomeViewController: UIViewController {
             guard let contentView: ButtonView = UINib.init(nibName: ButtonView.identifier, bundle: nil).instantiate(withOwner: nil, options: nil).first as? ButtonView else {
                 fatalError()
             }
-            // sectionの情報を与える
+            
             contentView.nowSection = ButtonView.Section(rawValue: index) ?? .none
             contentView.delegate = self
     
             contentView.layer.cornerRadius = 40
             self.stackView.addArrangedSubview(contentView)
-            
             contentView.update(number: number)
         }
     

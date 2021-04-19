@@ -121,8 +121,8 @@
 		8F6D313E262D96BC006FA2A9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				8F1A0DEF2605D79F00652BBA /* ListTable */,
 				8F1A0DEE2605D78B00652BBA /* Home */,
+				8F1A0DEF2605D79F00652BBA /* ListTable */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
