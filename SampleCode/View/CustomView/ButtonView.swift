@@ -44,7 +44,7 @@ class ButtonView: UIView {
         let tap = UITapGestureRecognizer.init(target: self, action: #selector(tapTest))
         self.addGestureRecognizer(tap)
         
-        nameLabel.text = "選択されていません(\(nowSection))"
+        nameLabel.text = "選択されていません"
         priceLabel.text = ""
         //itemImage.image = UIImage()
         
