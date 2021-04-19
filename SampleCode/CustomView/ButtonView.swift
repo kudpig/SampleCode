@@ -7,6 +7,11 @@
 
 import UIKit
 
+
+protocol ButtonViewProtocol: AnyObject {
+    func tapButton()
+}
+
 class ButtonView: UIView {
     
     static var identifier: String { String(describing: ButtonView.self) }
@@ -23,30 +28,44 @@ class ButtonView: UIView {
     
     var nowSection: Section = .none
     
-    // ここがうまくいかない
+    var delegate: ButtonViewProtocol?
+    
     @objc func tapTest() {
         print("\(nowSection)のセルがタップされました")
-        //let vc = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(identifier: "Home") as! HomeViewController
-        //Router.showList(fromVC: vc)
+        
+        delegate?.tapButton()
     }
     
-    
-    func buttonConfigure(number: String) {
-        
-        numberLabel.text = number
-        nameLabel.text = "選択されていません(\(nowSection))"
-        priceLabel.text = ""
-        
-        if itemImage.image != nil {
-            itemImage.isHidden = false
-        } else {
-            itemImage.isHidden = true
-        }
+    // nibが生成された時に１度だけ呼ばれる
+    // デフォルト(初期値など)の情報を持たせるときに使用する
+    override func awakeFromNib() {
+        super.awakeFromNib()
         
         let tap = UITapGestureRecognizer.init(target: self, action: #selector(tapTest))
         self.addGestureRecognizer(tap)
         
+        nameLabel.text = "選択されていません(\(nowSection))"
+        priceLabel.text = ""
+        //itemImage.image = UIImage()
+        
+        itemImage.isHidden = itemImage.image == nil
+        
+        
     }
+    
+    // ボタンの生成時
+    func update(number: String) {
+        
+        numberLabel.text = number
+        
+        
+    }
+    
+    // TableViewからItemを受け取る処理
+    func configure() {
+        
+    }
+    
     
 }
 

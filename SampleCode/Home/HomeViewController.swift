@@ -165,7 +165,7 @@ class HomeViewController: UIViewController {
     
 
 
-    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // ボタン下４つ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     private var numbers = ["5th", "6th", "7th", "8th"]
     
@@ -180,22 +180,21 @@ class HomeViewController: UIViewController {
     
     func setupStackView() {
     
-        var secitonNumber = 0
-    
-        for number in numbers {
+        for (index, number) in numbers.enumerated() {
     
             guard let contentView: ButtonView = UINib.init(nibName: ButtonView.identifier, bundle: nil).instantiate(withOwner: nil, options: nil).first as? ButtonView else {
                 fatalError()
             }
     
             // sectionの情報を与える
-            contentView.nowSection = ButtonView.Section(rawValue: secitonNumber) ?? .none
-            secitonNumber += 1
+            contentView.nowSection = ButtonView.Section(rawValue: index) ?? .none
+            
+            contentView.delegate = self
     
             contentView.layer.cornerRadius = 40
             self.stackView.addArrangedSubview(contentView)
             
-            contentView.buttonConfigure(number: number)
+            contentView.update(number: number)
         }
     
     }
@@ -226,6 +225,13 @@ extension HomeViewController: ToPassDataProtocol {
        
         totalPriceLabel.text = "合計 \(sumItemPrice) 円"
         
+    }
+    
+}
+
+extension HomeViewController: ButtonViewProtocol {
+    func tapButton() {
+        Router.showList(fromVC: self)
     }
     
 }
