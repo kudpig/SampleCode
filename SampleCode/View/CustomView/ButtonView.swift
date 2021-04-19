@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 protocol ButtonViewProtocol: AnyObject {
     func tapButton()
 }
@@ -46,19 +45,13 @@ class ButtonView: UIView {
         
         nameLabel.text = "選択されていません"
         priceLabel.text = ""
-        //itemImage.image = UIImage()
-        
+        itemImage.image = nil
         itemImage.isHidden = itemImage.image == nil
-        
-        
     }
     
     // ボタンの生成時
     func update(number: String) {
-        
         numberLabel.text = number
-        
-        
     }
     
     // TableViewからItemを受け取る処理
@@ -66,14 +59,6 @@ class ButtonView: UIView {
         
     }
     
-    
 }
 
-
-//var itemImageStr: String?
-
-//itemImageStr = ""
-//
-//if let str = itemImageStr {
-//    itemImage.image = UIImage(named: str)
-//}
+//itemImage.image = UIImage()

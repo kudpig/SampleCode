@@ -10,9 +10,7 @@ import UIKit
 class ItemListTableViewCell: UITableViewCell {
     
     @IBOutlet weak var iconImage: UIImageView!
-    
     @IBOutlet weak var nameLabel: UILabel!
-    
     @IBOutlet weak var priceLabel: UILabel!
     
     // cell呼び出し用のIDを設定 ハードコーディングを回避する
