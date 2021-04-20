@@ -231,7 +231,8 @@ extension HomeViewController: ToPassDataProtocol {
         case .fifth, .sixth, .seventh, .eighth:
             // Viewの情報更新処理
             contents[buttonStatus.rawValue - 4].configure(cellData: cellData)
-            
+            // Itemを配列に格納する
+            selectItems[buttonStatus.rawValue] = cellData
         default:
             break
         }
