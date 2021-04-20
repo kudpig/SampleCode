@@ -224,8 +224,6 @@ extension HomeViewController: ToPassDataProtocol {
             break
         }
        
-        totalPriceLabel.text = "合計 \(sumItemPrice) 円"
-        
         
         switch buttonStatus {
         case .fifth, .sixth, .seventh, .eighth:
@@ -236,6 +234,8 @@ extension HomeViewController: ToPassDataProtocol {
         default:
             break
         }
+        
+        totalPriceLabel.text = "合計 \(sumItemPrice) 円"
         
     }
     
