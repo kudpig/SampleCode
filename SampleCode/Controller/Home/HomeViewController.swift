@@ -131,7 +131,7 @@ class HomeViewController: UIViewController {
     private lazy var priceLabels = [firstPriceLabel, secondPriceLabel, thirdPriceLabel, fourthPriceLabel]
     private lazy var imageViews = [firstImage, secondImage, thirdImage, fourthImage]
     // 選択されたものを配列に加える。初期値は全てEmptyとする
-    private lazy var selectItems = [Item](repeating: Item.createEmpty(), count: nameLabels.count)
+    private lazy var selectItems = [Item](repeating: Item.createEmpty(), count: 8)
     
     // 押されたボタンの状態管理
     enum WhichBtn: Int {
