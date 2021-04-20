@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ButtonViewProtocol: AnyObject {
-    func tapButton()
+    func tapButton(section: Int)
 }
 
 class ButtonView: UIView {
@@ -20,7 +20,6 @@ class ButtonView: UIView {
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var priceLabel: UILabel!
     
-    
     enum Section: Int {
         case fifth = 0, sixth = 1, seventh = 2, eighth = 3, none = 4
     }
@@ -29,7 +28,7 @@ class ButtonView: UIView {
     var delegate: ButtonViewProtocol?
     
     @objc func tapTest() {
-        delegate?.tapButton()
+        delegate?.tapButton(section: nowSection.rawValue)
     }
     
     // nibが生成された時に１度だけ呼ばれる
@@ -51,11 +50,12 @@ class ButtonView: UIView {
         numberLabel.text = number
     }
     
-    // TableViewからItemを受け取る処理
-    func configure() {
-        
+    // VCからItemを受け取り、情報を更新
+    func configure(cellData: Item) {
+        nameLabel.text = cellData.name
+        priceLabel.text = String(cellData.price)
+        itemImage.image = UIImage(named: cellData.image)
+        itemImage.isHidden = itemImage.image == nil
     }
     
 }
-
-//itemImage.image = UIImage()

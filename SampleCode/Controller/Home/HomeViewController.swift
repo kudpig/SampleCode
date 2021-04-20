@@ -135,7 +135,7 @@ class HomeViewController: UIViewController {
     
     // 押されたボタンの状態管理
     enum WhichBtn: Int {
-        case first = 0, second = 1, third = 2, fourth = 3, none = 4
+        case first = 0, second = 1, third = 2, fourth = 3, fifth = 4, sixth = 5, seventh = 6, eighth = 7, none = 8
     }
     var buttonStatus: WhichBtn = .none
     
@@ -169,6 +169,8 @@ class HomeViewController: UIViewController {
 
     private var numbers = ["5th", "6th", "7th", "8th"]
     
+    var contents: [ButtonView] = []
+    
     @IBOutlet private weak var stackView: UIStackView! {
         didSet {
             setupStackView()
@@ -192,6 +194,8 @@ class HomeViewController: UIViewController {
             contentView.layer.cornerRadius = 40
             self.stackView.addArrangedSubview(contentView)
             contentView.update(number: number)
+            
+            contents.append(contentView)
         }
     
     }
@@ -222,12 +226,24 @@ extension HomeViewController: ToPassDataProtocol {
        
         totalPriceLabel.text = "合計 \(sumItemPrice) 円"
         
+        
+        switch buttonStatus {
+        case .fifth, .sixth, .seventh, .eighth:
+            // Viewの情報更新処理
+            contents[buttonStatus.rawValue - 4].configure(cellData: cellData)
+            
+        default:
+            break
+        }
+        
     }
     
 }
 
 extension HomeViewController: ButtonViewProtocol {
-    func tapButton() {
+    func tapButton(section: Int) {
+        let newSection = (section + 4)
+        buttonStatus = WhichBtn(rawValue: newSection) ?? .none
         Router.showList(fromVC: self)
     }
     
