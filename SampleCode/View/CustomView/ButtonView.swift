@@ -39,15 +39,15 @@ class ButtonView: UIView {
         let tap = UITapGestureRecognizer.init(target: self, action: #selector(tapTest))
         self.addGestureRecognizer(tap)
         
+    }
+    
+    // ボタンの生成時及びリセットボタン実行時
+    func update(number: String) {
+        numberLabel.text = number
         nameLabel.text = "選択されていません"
         priceLabel.text = ""
         itemImage.image = nil
         itemImage.isHidden = itemImage.image == nil
-    }
-    
-    // ボタンの生成時
-    func update(number: String) {
-        numberLabel.text = number
     }
     
     // VCからItemを受け取り、情報を更新

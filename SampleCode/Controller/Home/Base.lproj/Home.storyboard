@@ -518,6 +518,9 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="187" height="55"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <state key="normal" title="リセットする"/>
+                                                        <connections>
+                                                            <action selector="tapResetButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="T4Z-bb-jgz"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sfj-vy-Phl">
                                                         <rect key="frame" x="187" y="0.0" width="187" height="55"/>

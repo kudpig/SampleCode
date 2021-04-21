@@ -203,6 +203,25 @@ class HomeViewController: UIViewController {
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+    @IBAction func tapResetButton(_ sender: UIButton) {
+        
+        for (index, _) in selectItems.enumerated() {
+            
+            if index >= 4 {
+                // 配列の中身を空のItemにする
+                let clearItem = Item.createEmpty()
+                selectItems[index] = clearItem
+                // 表示を初期値に変更する
+                let numberIndex = numbers[index - 4]
+                contents[index - 4].update(number: numberIndex)
+                // リセット後のtotalPriceLabelを再表示する
+                totalPriceLabel.text = "合計 \(sumItemPrice) 円"
+            }
+            
+        }
+        
+    }
+    
 }
 
 
