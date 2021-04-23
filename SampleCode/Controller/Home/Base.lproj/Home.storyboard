@@ -572,6 +572,7 @@
                         <outlet property="secondNameLabel" destination="yNq-1J-cZj" id="DUM-dY-fvr"/>
                         <outlet property="secondPriceLabel" destination="F8M-uh-LOz" id="h1c-mo-Hqv"/>
                         <outlet property="stackView" destination="4fZ-JH-xOh" id="zyp-9h-nFh"/>
+                        <outlet property="testStackView" destination="adh-X8-taf" id="CRQ-DK-i7d"/>
                         <outlet property="thirdImage" destination="IRY-RU-VoY" id="SNy-kD-r2s"/>
                         <outlet property="thirdItemView" destination="1u9-f8-DWt" id="k7s-yA-rVS"/>
                         <outlet property="thirdNameLabel" destination="Zgg-T9-jSd" id="hUT-AF-unw"/>

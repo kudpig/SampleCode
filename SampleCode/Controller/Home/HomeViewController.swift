@@ -9,100 +9,55 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    @IBOutlet weak var testStackView: UIStackView! {
+        didSet {
+            testStackView.arrangedSubviews.forEach {
+                createItemView($0, 40, .white)
+            }
+        }
+    }
     // View
-    @IBOutlet weak var firstItemView: UIView! {
-        didSet {
-            createItemView(firstItemView, 40, .white)
-        }
-    }
-    @IBOutlet weak var secondItemView: UIView! {
-        didSet {
-            createItemView(secondItemView, 40, .white)
-        }
-    }
-    @IBOutlet weak var thirdItemView: UIView! {
-        didSet {
-            createItemView(thirdItemView, 40, .white)
-        }
-    }
-    @IBOutlet weak var fourthItemView: UIView! {
-        didSet {
-            createItemView(fourthItemView, 40, .white)
-        }
-    }
-    // nameLabel
-    @IBOutlet weak var firstNameLabel: UILabel! {
-        didSet {
-            firstNameLabel.text = nameLabelPlaceholder
-        }
-    }
-    @IBOutlet weak var secondNameLabel: UILabel! {
-        didSet {
-            secondNameLabel.text = nameLabelPlaceholder
-        }
-    }
-    @IBOutlet weak var thirdNameLabel: UILabel! {
-        didSet {
-            thirdNameLabel.text = nameLabelPlaceholder
-        }
-    }
-    @IBOutlet weak var fourthNameLabel: UILabel! {
-        didSet {
-            fourthNameLabel.text = nameLabelPlaceholder
-        }
-    }
+    @IBOutlet weak var firstItemView: UIView!
+    @IBOutlet weak var secondItemView: UIView!
+    @IBOutlet weak var thirdItemView: UIView!
+    @IBOutlet weak var fourthItemView: UIView!
+    // nemeLabel
+    @IBOutlet weak var firstNameLabel: UILabel!
+    @IBOutlet weak var secondNameLabel: UILabel!
+    @IBOutlet weak var thirdNameLabel: UILabel!
+    @IBOutlet weak var fourthNameLabel: UILabel!
     // imageView
-    @IBOutlet weak var firstImage: UIImageView! {
-        didSet {
-            firstImage.isHidden = true
-        }
-    }
-    @IBOutlet weak var secondImage: UIImageView! {
-        didSet {
-            secondImage.isHidden = true
-        }
-    }
-    @IBOutlet weak var thirdImage: UIImageView! {
-        didSet {
-            thirdImage.isHidden = true
-        }
-    }
-    @IBOutlet weak var fourthImage: UIImageView! {
-        didSet {
-            fourthImage.isHidden = true
-        }
-    }
+    @IBOutlet weak var firstImage: UIImageView!
+    @IBOutlet weak var secondImage: UIImageView!
+    @IBOutlet weak var thirdImage: UIImageView!
+    @IBOutlet weak var fourthImage: UIImageView!
     // priceLabel
-    @IBOutlet weak var firstPriceLabel: UILabel! {
-        didSet{
-            firstPriceLabel.text = priceLabelPlaceholder
-        }
-    }
-    @IBOutlet weak var secondPriceLabel: UILabel! {
-        didSet{
-            secondPriceLabel.text = priceLabelPlaceholder
-        }
-    }
-    @IBOutlet weak var thirdPriceLabel: UILabel! {
-        didSet{
-            thirdPriceLabel.text = priceLabelPlaceholder
-        }
-    }
-    @IBOutlet weak var fourthPriceLabel: UILabel! {
-        didSet{
-            fourthPriceLabel.text = priceLabelPlaceholder
-        }
-    }
+    @IBOutlet weak var firstPriceLabel: UILabel!
+    @IBOutlet weak var secondPriceLabel: UILabel!
+    @IBOutlet weak var thirdPriceLabel: UILabel!
+    @IBOutlet weak var fourthPriceLabel: UILabel!
     
+    // Label 初期値
+    var nameLabelPlaceholder: String = "選択されていません"
+    var priceLabelPlaceholder: String = ""
     
+    private lazy var nameLabels = [firstNameLabel, secondNameLabel, thirdNameLabel, fourthNameLabel]
+    private lazy var priceLabels = [firstPriceLabel, secondPriceLabel, thirdPriceLabel, fourthPriceLabel]
+    private lazy var imageViews = [firstImage, secondImage, thirdImage, fourthImage]
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        nameLabels.forEach { $0?.text = nameLabelPlaceholder }
+        priceLabels.forEach { $0?.text = priceLabelPlaceholder }
+        imageViews.forEach { $0?.isHidden = true }
+    }
+
     func createItemView(_ view: UIView, _ int: CGFloat, _ color: UIColor) {
         view.layer.cornerRadius = int
         view.backgroundColor = color
     }
     
-    // Label 初期値
-    var nameLabelPlaceholder: String = "選択されていません"
-    var priceLabelPlaceholder: String = ""
     
     
     @IBOutlet weak var totalPriceLabel: UILabel! {
@@ -125,11 +80,6 @@ class HomeViewController: UIViewController {
     
     
     private lazy var items = Item.createDefaultItems()
-    
-    
-    private lazy var nameLabels = [firstNameLabel, secondNameLabel, thirdNameLabel, fourthNameLabel]
-    private lazy var priceLabels = [firstPriceLabel, secondPriceLabel, thirdPriceLabel, fourthPriceLabel]
-    private lazy var imageViews = [firstImage, secondImage, thirdImage, fourthImage]
     // 選択されたものを配列に加える。初期値は全てEmptyとする
     private lazy var selectItems = [Item](repeating: Item.createEmpty(), count: 8)
     
