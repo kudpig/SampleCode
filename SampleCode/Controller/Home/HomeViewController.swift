@@ -41,7 +41,7 @@ class HomeViewController: UIViewController {
 
 
 
-    private var numbers = ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th"]
+    private var titles = ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th"]
     
     var contents: [ButtonView] = []
     
@@ -57,7 +57,7 @@ class HomeViewController: UIViewController {
     
     func setupStackView() {
     
-        for (index, number) in numbers.enumerated() {
+        for (index, title) in titles.enumerated() {
     
             guard let contentView: ButtonView = UINib.init(nibName: ButtonView.identifier, bundle: nil).instantiate(withOwner: nil, options: nil).first as? ButtonView else {
                 fatalError()
@@ -68,7 +68,7 @@ class HomeViewController: UIViewController {
     
             contentView.layer.cornerRadius = 40
             self.stackView.addArrangedSubview(contentView)
-            contentView.update(number: number)
+            contentView.update(titleString: title)
             
             contents.append(contentView)
         }
@@ -86,8 +86,8 @@ class HomeViewController: UIViewController {
                 let clearItem = Item.createEmpty()
                 selectItems[index] = clearItem
                 // 表示を初期値に変更する
-                let numberIndex = numbers[index - 4]
-                contents[index - 4].update(number: numberIndex)
+                let titleIndex = titles[index - 4]
+                contents[index - 4].update(titleString: titleIndex)
                 // リセット後のtotalPriceLabelを再表示する
                 totalPriceLabel.text = "合計 \(sumItemPrice) 円"
             }
