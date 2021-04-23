@@ -20,8 +20,8 @@ class ButtonView: UIView {
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var priceLabel: UILabel!
     
-    enum Section: Int {
-        case fifth = 0, sixth = 1, seventh = 2, eighth = 3, none = 4
+    enum Section: Int, CaseIterable {
+        case first = 0, second, third, fourth, fifth, sixth, seventh, eighth, none
     }
     var nowSection: Section = .none
     
@@ -42,8 +42,8 @@ class ButtonView: UIView {
     }
     
     // ボタンの生成時及びリセットボタン実行時
-    func update(titleString: String) {
-        numberLabel.text = titleString
+    func update(titleData: String) {
+        numberLabel.text = titleData
         nameLabel.text = "選択されていません"
         priceLabel.text = ""
         itemImage.image = nil
