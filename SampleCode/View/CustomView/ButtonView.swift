@@ -42,8 +42,8 @@ class ButtonView: UIView {
     }
     
     // ボタンの生成時及びリセットボタン実行時
-    func update(titleData: String) {
-        numberLabel.text = titleData
+    func update(titleData: Title) {
+        numberLabel.text = titleData.name
         nameLabel.text = "選択されていません"
         priceLabel.text = ""
         itemImage.image = nil
