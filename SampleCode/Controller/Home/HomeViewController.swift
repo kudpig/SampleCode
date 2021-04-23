@@ -9,57 +9,6 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    @IBOutlet weak var testStackView: UIStackView! {
-        didSet {
-            testStackView.arrangedSubviews.forEach {
-                createItemView($0, 40, .white)
-            }
-        }
-    }
-    // View
-    @IBOutlet weak var firstItemView: UIView!
-    @IBOutlet weak var secondItemView: UIView!
-    @IBOutlet weak var thirdItemView: UIView!
-    @IBOutlet weak var fourthItemView: UIView!
-    // nemeLabel
-    @IBOutlet weak var firstNameLabel: UILabel!
-    @IBOutlet weak var secondNameLabel: UILabel!
-    @IBOutlet weak var thirdNameLabel: UILabel!
-    @IBOutlet weak var fourthNameLabel: UILabel!
-    // imageView
-    @IBOutlet weak var firstImage: UIImageView!
-    @IBOutlet weak var secondImage: UIImageView!
-    @IBOutlet weak var thirdImage: UIImageView!
-    @IBOutlet weak var fourthImage: UIImageView!
-    // priceLabel
-    @IBOutlet weak var firstPriceLabel: UILabel!
-    @IBOutlet weak var secondPriceLabel: UILabel!
-    @IBOutlet weak var thirdPriceLabel: UILabel!
-    @IBOutlet weak var fourthPriceLabel: UILabel!
-    
-    // Label 初期値
-    var nameLabelPlaceholder: String = "選択されていません"
-    var priceLabelPlaceholder: String = ""
-    
-    private lazy var nameLabels = [firstNameLabel, secondNameLabel, thirdNameLabel, fourthNameLabel]
-    private lazy var priceLabels = [firstPriceLabel, secondPriceLabel, thirdPriceLabel, fourthPriceLabel]
-    private lazy var imageViews = [firstImage, secondImage, thirdImage, fourthImage]
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        nameLabels.forEach { $0?.text = nameLabelPlaceholder }
-        priceLabels.forEach { $0?.text = priceLabelPlaceholder }
-        imageViews.forEach { $0?.isHidden = true }
-    }
-
-    func createItemView(_ view: UIView, _ int: CGFloat, _ color: UIColor) {
-        view.layer.cornerRadius = int
-        view.backgroundColor = color
-    }
-    
-    
-    
     @IBOutlet weak var totalPriceLabel: UILabel! {
         didSet {
             totalPriceLabel.text = "合計 \(sumItemPrice) 円"
@@ -88,40 +37,16 @@ class HomeViewController: UIViewController {
         case first = 0, second = 1, third = 2, fourth = 3, fifth = 4, sixth = 5, seventh = 6, eighth = 7, none = 8
     }
     var buttonStatus: WhichBtn = .none
-    
-    
-    
-    // ButtonAciton Funcs
-    @IBAction func tapFirstButton(_ sender: UIButton) {
-        buttonStatus = .first
-        Router.showList(fromVC: self)
-    }
-    
-    @IBAction func tapSecondButton(_ sender: UIButton) {
-        buttonStatus = .second
-        Router.showList(fromVC: self)
-    }
-    
-    @IBAction func tapThirdButton(_ sender: UIButton) {
-        buttonStatus = .third
-        Router.showList(fromVC: self)
-    }
-    
-    @IBAction func tapFourthButton(_ sender: UIButton) {
-        buttonStatus = .fourth
-        Router.showList(fromVC: self)
-    }
-    
-    
 
 
-    // ボタン下４つ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    private var numbers = ["5th", "6th", "7th", "8th"]
+
+    private var numbers = ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th"]
     
     var contents: [ButtonView] = []
     
-    @IBOutlet private weak var stackView: UIStackView! {
+    
+    @IBOutlet weak var stackView: UIStackView! {
         didSet {
             setupStackView()
             stackView.axis = .vertical
@@ -151,7 +76,6 @@ class HomeViewController: UIViewController {
     }
 
 
-    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     @IBAction func tapResetButton(_ sender: UIButton) {
         
@@ -181,21 +105,7 @@ extension HomeViewController: ToPassDataProtocol {
     func cellDidSelect(cellData: Item) {
         
         switch buttonStatus {
-        case .first, .second, .third, .fourth:
-            // labelsに格納されている配列の順番と、buttonStatusのenumのIntを一致させている
-            nameLabels[buttonStatus.rawValue]?.text = cellData.name
-            priceLabels[buttonStatus.rawValue]?.text = String(cellData.price)
-            imageViews[buttonStatus.rawValue]?.image = UIImage(named: cellData.image)
-            imageViews[buttonStatus.rawValue]?.isHidden = false
-            // 選択されたFoodオブジェクトを配列に格納する(一覧画面に渡せるように)
-            selectItems[buttonStatus.rawValue] = cellData
-        default:
-            break
-        }
-       
-        
-        switch buttonStatus {
-        case .fifth, .sixth, .seventh, .eighth:
+        case .first, .second, .third, .fourth, .fifth, .sixth, .seventh, .eighth:
             // Viewの情報更新処理
             contents[buttonStatus.rawValue - 4].configure(cellData: cellData)
             // Itemを配列に格納する
