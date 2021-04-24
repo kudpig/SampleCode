@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ButtonViewProtocol: AnyObject {
-    func tapButton()
+    func tapButton(section: Int)
 }
 
 class ButtonView: UIView {
@@ -20,16 +20,15 @@ class ButtonView: UIView {
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var priceLabel: UILabel!
     
-    
-    enum Section: Int {
-        case fifth = 0, sixth = 1, seventh = 2, eighth = 3, none = 4
+    enum Section: Int, CaseIterable {
+        case first = 0, second, third, fourth, fifth, sixth, seventh, eighth, none
     }
     var nowSection: Section = .none
     
     var delegate: ButtonViewProtocol?
     
     @objc func tapTest() {
-        delegate?.tapButton()
+        delegate?.tapButton(section: nowSection.rawValue)
     }
     
     // nibが生成された時に１度だけ呼ばれる
@@ -40,22 +39,23 @@ class ButtonView: UIView {
         let tap = UITapGestureRecognizer.init(target: self, action: #selector(tapTest))
         self.addGestureRecognizer(tap)
         
+    }
+    
+    // ボタンの生成時及びリセットボタン実行時
+    func update(titleData: Title) {
+        numberLabel.text = titleData.name
         nameLabel.text = "選択されていません"
         priceLabel.text = ""
         itemImage.image = nil
         itemImage.isHidden = itemImage.image == nil
     }
     
-    // ボタンの生成時
-    func update(number: String) {
-        numberLabel.text = number
-    }
-    
-    // TableViewからItemを受け取る処理
-    func configure() {
-        
+    // VCからItemを受け取り、情報を更新
+    func configure(cellData: Item) {
+        nameLabel.text = cellData.name
+        priceLabel.text = String(cellData.price)
+        itemImage.image = UIImage(named: cellData.image)
+        itemImage.isHidden = itemImage.image == nil
     }
     
 }
-
-//itemImage.image = UIImage()
