@@ -112,13 +112,13 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		8F4EF3B5262B691700697207 /* CustomView */ = {
+		8F4EF3B5262B691700697207 /* ButtonView */ = {
 			isa = PBXGroup;
 			children = (
 				8F4EF3AF262B379800697207 /* ButtonView.swift */,
 				8F4EF3B2262B37A800697207 /* ButtonView.xib */,
 			);
-			path = CustomView;
+			path = ButtonView;
 			sourceTree = "<group>";
 		};
 		8F6D313E262D96BC006FA2A9 /* Controller */ = {
@@ -134,7 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				8FE6E4272605E90300490C35 /* TableViewCell */,
-				8F4EF3B5262B691700697207 /* CustomView */,
+				8F4EF3B5262B691700697207 /* ButtonView */,
 			);
 			path = View;
 			sourceTree = "<group>";
