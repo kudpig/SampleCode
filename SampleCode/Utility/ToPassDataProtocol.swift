@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol ToPassDataProtocol: class {
+protocol ToPassDataProtocol: AnyObject {
     func cellDidSelect(cellData: Item)
 }
