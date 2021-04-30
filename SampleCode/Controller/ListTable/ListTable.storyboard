@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MyS-B7-e6H">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MyS-B7-e6H">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,27 +18,41 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eif-br-dRW">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="94" width="414" height="768"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="q0r-gz-eEh" userLabel="segmentControl">
+                                <rect key="frame" x="10" y="49" width="394" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="okk-s2-x26"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nYs-9t-Ost"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="eif-br-dRW" firstAttribute="top" secondItem="nYs-9t-Ost" secondAttribute="top" id="Blw-JW-21G"/>
-                            <constraint firstItem="nYs-9t-Ost" firstAttribute="trailing" secondItem="eif-br-dRW" secondAttribute="trailing" id="Qz3-9k-PZI"/>
-                            <constraint firstItem="nYs-9t-Ost" firstAttribute="bottom" secondItem="eif-br-dRW" secondAttribute="bottom" id="cEo-GV-e9N"/>
-                            <constraint firstItem="eif-br-dRW" firstAttribute="leading" secondItem="nYs-9t-Ost" secondAttribute="leading" id="hEs-dw-lrs"/>
+                            <constraint firstItem="nYs-9t-Ost" firstAttribute="trailing" secondItem="eif-br-dRW" secondAttribute="trailing" id="E5i-Qv-j64"/>
+                            <constraint firstItem="q0r-gz-eEh" firstAttribute="top" secondItem="nYs-9t-Ost" secondAttribute="top" constant="5" id="Jpv-EG-jLa"/>
+                            <constraint firstItem="nYs-9t-Ost" firstAttribute="trailing" secondItem="q0r-gz-eEh" secondAttribute="trailing" constant="10" id="in2-DP-8I7"/>
+                            <constraint firstItem="eif-br-dRW" firstAttribute="leading" secondItem="nYs-9t-Ost" secondAttribute="leading" id="pYR-bM-Jof"/>
+                            <constraint firstItem="q0r-gz-eEh" firstAttribute="leading" secondItem="nYs-9t-Ost" secondAttribute="leading" constant="10" id="vC6-xn-lVx"/>
+                            <constraint firstItem="eif-br-dRW" firstAttribute="bottom" secondItem="nYs-9t-Ost" secondAttribute="bottom" id="wF4-r7-bR4"/>
+                            <constraint firstItem="eif-br-dRW" firstAttribute="top" secondItem="q0r-gz-eEh" secondAttribute="bottom" constant="5" id="zfO-kd-e9P"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gTs-8f-him"/>
                     <connections>
+                        <outlet property="segmentControl" destination="q0r-gz-eEh" id="OgC-Tx-VuC"/>
                         <outlet property="tableView" destination="eif-br-dRW" id="D9S-Or-Cih"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E9w-5e-Dhy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1925" y="-342"/>
+            <point key="canvasLocation" x="-1926.0869565217392" y="-342.1875"/>
         </scene>
     </scenes>
     <resources>
