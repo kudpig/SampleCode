@@ -89,10 +89,6 @@
 				8F13ABB625EB850800FBC8DC /* Assets.xcassets */,
 				8F13ABB825EB850800FBC8DC /* LaunchScreen.storyboard */,
 				8F13ABBB25EB850800FBC8DC /* Info.plist */,
-				8F528C4F263D52BA008E2201 /* ResultViewController.swift */,
-				8F528C51263D5948008E2201 /* Result.storyboard */,
-				8F528C53263D5977008E2201 /* ResultListView.xib */,
-				8F528C57263D5DFA008E2201 /* ResultListView.swift */,
 			);
 			path = SampleCode;
 			sourceTree = "<group>";
@@ -133,11 +129,30 @@
 			path = ButtonView;
 			sourceTree = "<group>";
 		};
+		8F528C59263D81FF008E2201 /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				8F528C4F263D52BA008E2201 /* ResultViewController.swift */,
+				8F528C51263D5948008E2201 /* Result.storyboard */,
+			);
+			path = Result;
+			sourceTree = "<group>";
+		};
+		8F528C5A263D8224008E2201 /* ResultListView */ = {
+			isa = PBXGroup;
+			children = (
+				8F528C57263D5DFA008E2201 /* ResultListView.swift */,
+				8F528C53263D5977008E2201 /* ResultListView.xib */,
+			);
+			path = ResultListView;
+			sourceTree = "<group>";
+		};
 		8F6D313E262D96BC006FA2A9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				8F1A0DEE2605D78B00652BBA /* Home */,
 				8F1A0DEF2605D79F00652BBA /* ListTable */,
+				8F528C59263D81FF008E2201 /* Result */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -147,6 +162,7 @@
 			children = (
 				8FE6E4272605E90300490C35 /* TableViewCell */,
 				8F4EF3B5262B691700697207 /* ButtonView */,
+				8F528C5A263D8224008E2201 /* ResultListView */,
 			);
 			path = View;
 			sourceTree = "<group>";
