@@ -26,6 +26,12 @@ final class Router {
         show(fromVC: fromVC, nextVC: vc)
     }
     
+    static func showResult(fromVC: UIViewController, items: [Item]) {
+        let vc = UIStoryboard(name: "Result", bundle: nil).instantiateViewController(identifier: "Result") as! ResultViewController
+        vc.receiveItems = items
+            
+        show(fromVC: fromVC, nextVC: vc)
+    }
     
     private static func show(fromVC: UIViewController, nextVC: UIViewController) {
         if let nav = fromVC.navigationController {

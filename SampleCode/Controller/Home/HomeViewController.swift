@@ -91,6 +91,12 @@ class HomeViewController: UIViewController {
         }
     }
     
+    @IBAction func tapResultButton(_ sender: UIButton) {
+        Router.showResult(fromVC: self, items: selectItems)
+    }
+    
+    
+    
 }
 
 
