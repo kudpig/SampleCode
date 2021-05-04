@@ -45,15 +45,7 @@ final class ConfirmSelectedItemsViewController: UIViewController {
     }
     
     private var calculateItemPrice: Int {
-        get {
-            receiveItems.filter { (item) -> Bool in
-                !item.name.isEmpty
-            }.map { (item) -> Int in
-                item.price
-            }.reduce(0) { (result, price) -> Int in
-                result + price
-            }
-        }
+        receiveItems.filter { !$0.name.isEmpty }.map { $0.price }.reduce(0) { $0 + $1 }
     }
 
 }
