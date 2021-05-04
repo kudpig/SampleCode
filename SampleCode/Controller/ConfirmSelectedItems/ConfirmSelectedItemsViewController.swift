@@ -14,12 +14,8 @@ final class ConfirmSelectedItemsViewController: UIViewController {
     @IBOutlet private weak var resultStackView: UIStackView! {
         didSet {
             setupResultStackView()
-            resultStackView.axis = .vertical
-            resultStackView.distribution = .fillEqually
-            resultStackView.backgroundColor = .darkGray
-            resultStackView.spacing = 2
+            // borderColorだけstoryboardで設定してもうまく起動しなかった
             resultStackView.layer.borderColor = UIColor.darkGray.cgColor
-            resultStackView.layer.borderWidth = 2
         }
     }
     
