@@ -1,5 +1,5 @@
 //
-//  ResultViewController.swift
+//  ConfirmSelectedItemsViewController.swift
 //  SampleCode
 //
 //  Created by Shinichiro Kudo on 2021/05/01.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ResultViewController: UIViewController {
+class ConfirmSelectedItemsViewController: UIViewController {
     
     var receiveItems: [Item] = []
     

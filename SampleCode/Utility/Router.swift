@@ -27,7 +27,7 @@ final class Router {
     }
     
     static func showResult(fromVC: UIViewController, items: [Item]) {
-        let vc = UIStoryboard(name: "Result", bundle: nil).instantiateViewController(identifier: "Result") as! ResultViewController
+        let vc = UIStoryboard(name: "ConfirmSelectedItems", bundle: nil).instantiateViewController(identifier: "ConfirmSelectedItems") as! ConfirmSelectedItemsViewController
         vc.receiveItems = items
             
         show(fromVC: fromVC, nextVC: vc)

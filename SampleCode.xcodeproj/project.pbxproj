@@ -20,8 +20,8 @@
 		8F43D09C26334D4D001D48D1 /* TitleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F43D09B26334D4D001D48D1 /* TitleModel.swift */; };
 		8F4EF3B0262B379800697207 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4EF3AF262B379800697207 /* ButtonView.swift */; };
 		8F4EF3B3262B37A800697207 /* ButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F4EF3B2262B37A800697207 /* ButtonView.xib */; };
-		8F528C50263D52BA008E2201 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F528C4F263D52BA008E2201 /* ResultViewController.swift */; };
-		8F528C52263D5948008E2201 /* Result.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F528C51263D5948008E2201 /* Result.storyboard */; };
+		8F528C50263D52BA008E2201 /* ConfirmSelectedItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F528C4F263D52BA008E2201 /* ConfirmSelectedItemsViewController.swift */; };
+		8F528C52263D5948008E2201 /* ConfirmSelectedItems.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F528C51263D5948008E2201 /* ConfirmSelectedItems.storyboard */; };
 		8F528C54263D5977008E2201 /* ResultListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F528C53263D5977008E2201 /* ResultListView.xib */; };
 		8F528C58263D5DFA008E2201 /* ResultListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F528C57263D5DFA008E2201 /* ResultListView.swift */; };
 		8FE6E4242605E87200490C35 /* ToPassDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE6E4232605E87200490C35 /* ToPassDataProtocol.swift */; };
@@ -44,8 +44,8 @@
 		8F43D09B26334D4D001D48D1 /* TitleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleModel.swift; sourceTree = "<group>"; };
 		8F4EF3AF262B379800697207 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		8F4EF3B2262B37A800697207 /* ButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonView.xib; sourceTree = "<group>"; };
-		8F528C4F263D52BA008E2201 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
-		8F528C51263D5948008E2201 /* Result.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Result.storyboard; sourceTree = "<group>"; };
+		8F528C4F263D52BA008E2201 /* ConfirmSelectedItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmSelectedItemsViewController.swift; sourceTree = "<group>"; };
+		8F528C51263D5948008E2201 /* ConfirmSelectedItems.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ConfirmSelectedItems.storyboard; sourceTree = "<group>"; };
 		8F528C53263D5977008E2201 /* ResultListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultListView.xib; sourceTree = "<group>"; };
 		8F528C57263D5DFA008E2201 /* ResultListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultListView.swift; sourceTree = "<group>"; };
 		8FE6E4232605E87200490C35 /* ToPassDataProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToPassDataProtocol.swift; sourceTree = "<group>"; };
@@ -129,13 +129,13 @@
 			path = ButtonView;
 			sourceTree = "<group>";
 		};
-		8F528C59263D81FF008E2201 /* Result */ = {
+		8F528C59263D81FF008E2201 /* ConfirmSelectedItems */ = {
 			isa = PBXGroup;
 			children = (
-				8F528C4F263D52BA008E2201 /* ResultViewController.swift */,
-				8F528C51263D5948008E2201 /* Result.storyboard */,
+				8F528C4F263D52BA008E2201 /* ConfirmSelectedItemsViewController.swift */,
+				8F528C51263D5948008E2201 /* ConfirmSelectedItems.storyboard */,
 			);
-			path = Result;
+			path = ConfirmSelectedItems;
 			sourceTree = "<group>";
 		};
 		8F528C5A263D8224008E2201 /* ResultListView */ = {
@@ -152,7 +152,7 @@
 			children = (
 				8F1A0DEE2605D78B00652BBA /* Home */,
 				8F1A0DEF2605D79F00652BBA /* ListTable */,
-				8F528C59263D81FF008E2201 /* Result */,
+				8F528C59263D81FF008E2201 /* ConfirmSelectedItems */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -243,7 +243,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F528C52263D5948008E2201 /* Result.storyboard in Resources */,
+				8F528C52263D5948008E2201 /* ConfirmSelectedItems.storyboard in Resources */,
 				8F528C54263D5977008E2201 /* ResultListView.xib in Resources */,
 				8F13ABCC25EBAE5C00FBC8DC /* ItemListTableViewCell.xib in Resources */,
 				8F13ABBA25EB850800FBC8DC /* LaunchScreen.storyboard in Resources */,
@@ -266,7 +266,7 @@
 				8F4EF3B0262B379800697207 /* ButtonView.swift in Sources */,
 				8F13ABB225EB850800FBC8DC /* HomeViewController.swift in Sources */,
 				8FF6A4842626C831005B92D9 /* Router.swift in Sources */,
-				8F528C50263D52BA008E2201 /* ResultViewController.swift in Sources */,
+				8F528C50263D52BA008E2201 /* ConfirmSelectedItemsViewController.swift in Sources */,
 				8F43D09C26334D4D001D48D1 /* TitleModel.swift in Sources */,
 				8F13ABCB25EBAE5C00FBC8DC /* ItemListTableViewCell.swift in Sources */,
 				8F13ABC325EBAA0500FBC8DC /* ListTableViewController.swift in Sources */,
