@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ConfirmSelectedItemsViewController: UIViewController {
+final class ConfirmSelectedItemsViewController: UIViewController {
     
     var receiveItems: [Item] = []
     
