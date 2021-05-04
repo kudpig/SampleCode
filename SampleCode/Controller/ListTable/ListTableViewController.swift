@@ -54,15 +54,12 @@ class ListTableViewController: UIViewController {
 }
 
 
-// TableView Funcs ①〜③
-    // ①行の数
-extension ListTableViewController: UITableViewDelegate, UITableViewDataSource {
+extension ListTableViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return displayItemList.count
     }
     
-    // ②cellの中身に関する設定
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ItemListTableViewCell.identifier) as? ItemListTableViewCell else {
@@ -75,7 +72,10 @@ extension ListTableViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    // ③セルをタップした時の設定
+}
+
+extension ListTableViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let item = displayItemList[indexPath.row]
