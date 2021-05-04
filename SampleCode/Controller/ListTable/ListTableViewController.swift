@@ -28,22 +28,18 @@ class ListTableViewController: UIViewController {
     }
     
     @objc private func handleSegmentChage() {
-        
-        guard segmentControl.selectedSegmentIndex != .zero else {
-            displayItemList = itemList
-            tableView.reloadData()
-            return
-        }
-        
-        let filterList = itemList.filter { v in v.type == Item.genre.allCases[segmentControl.selectedSegmentIndex] }
-        displayItemList = filterList
         tableView.reloadData()
     }
     
     
     private lazy var itemList = Item.createDefaultItems()
     
-    private lazy var displayItemList = itemList
+    private var displayItemList: [Item] {
+        guard segmentControl.selectedSegmentIndex != .zero else {
+            return itemList
+        }
+        return itemList.filter { $0.type == Item.genre.allCases[segmentControl.selectedSegmentIndex] }
+    }
     
     weak var delegate: ToPassDataProtocol?
     
