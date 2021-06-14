@@ -25,7 +25,7 @@ struct Item {
     static func createDefaultItems() -> [Item] {
 
         let arr = [
-            Item(type: .fruits, name: "Apple", price: 200, image: "Apple"),
+            Item(type: .fruits, name: NSLocalizedString("Apple", comment: ""), price: 200, image: "Apple"),
             Item(type: .fruits, name: "Orange", price: 120 ,image: "Orange"),
             Item(type: .fruits, name: "Banana", price: 65 ,image: "Banana"),
             Item(type: .fruits, name: "Grape", price: 400 ,image: "Grape"),
